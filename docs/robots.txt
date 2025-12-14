@@ -1,0 +1,19 @@
+# robots.txt for Make Bold Solutions
+# Allow all crawlers access to all content
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://makeboldsolutions.com/sitemap.xml
+
+# Crawler-specific optimizations
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Disallow common non-essential paths
+User-agent: *
+Disallow: /404.html

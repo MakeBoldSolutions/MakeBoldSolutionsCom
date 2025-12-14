@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, Zap, TrendingUp, ChevronRight, Mail, Linkedin } from "lucide-react";
+import { ArrowRight, ShieldCheck, Zap, TrendingUp, ChevronRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent } from "@/components/ui/card";
 import heroBg from "@assets/generated_images/abstract_modern_dark_corporate_background_with_geometric_lines.png";
-import logoSymbol from "@assets/generated_images/bold_forward-pointing_chevron_logo_symbol_in_electric_indigo.png";
 
 export default function Home() {
   const { toast } = useToast();
@@ -21,10 +20,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden selection:bg-primary selection:text-primary-foreground">
       {/* Navigation Overlay */}
-      <nav className="fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-center backdrop-blur-sm bg-background/50 border-b border-white/5">
+      <nav className="fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-center backdrop-blur-sm bg-background/50 border-b border-white/5" role="navigation" aria-label="Main navigation">
         <div className="flex flex-col">
-          <div className="flex items-center gap-3">
-            <img src={logoSymbol} alt="Make Bold Solutions Symbol" className="h-8 w-8 object-contain" />
+          <div className="flex items-center">
             <span className="text-2xl font-display font-bold tracking-tight text-white">
               MAKE BOLD
             </span>
@@ -33,19 +31,13 @@ export default function Home() {
             SOLUTIONS
           </div>
         </div>
-        <Button asChild variant="outline" className="hidden md:flex border-primary/20 hover:bg-primary/10 hover:text-primary">
-          <a href="https://www.linkedin.com/company/make-bold-solutions" target="_blank" rel="noopener noreferrer">
-            Contact Us
-          </a>
-        </Button>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        {/* Background Image with Overlay */}
+      <section className="relative min-h-screen flex items-center justify-center pt-20" role="banner">
         <div className="absolute inset-0 z-0">
           <img 
-            src={heroBg} 
+            src={heroBg}
             alt="Abstract Background" 
             className="w-full h-full object-cover opacity-40"
           />
@@ -58,7 +50,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium tracking-wider uppercase">
+            <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium tracking-wider uppercase" role="status">
               Launching Soon
             </div>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight mb-8 leading-[1.1]">
@@ -85,11 +77,11 @@ export default function Home() {
       </section>
 
       {/* Value Proposition */}
-      <section className="py-24 px-4 md:px-6 bg-background relative">
+      <section className="py-24 px-4 md:px-6 bg-background relative" aria-labelledby="value-proposition">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
             <div>
-              <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 leading-tight">
+              <h2 id="value-proposition" className="text-3xl md:text-5xl font-display font-bold mb-6 leading-tight">
                 Scale Smarter, <br />
                 <span className="text-primary">Not Harder.</span>
               </h2>
@@ -157,7 +149,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-white/5 bg-black/20">
+      <footer className="py-12 border-t border-white/5 bg-black/20" role="contentinfo" aria-label="Site footer">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <div className="text-xl font-display font-bold tracking-tighter mb-4">
             MAKE <span className="text-primary">BOLD</span> SOLUTIONS
@@ -169,10 +161,6 @@ export default function Home() {
             <a href="mailto:Lesley.Hazleton@makeboldsolutions.com" className="text-muted-foreground hover:text-primary transition-colors">
               <Mail className="h-5 w-5" />
               <span className="sr-only">Email</span>
-            </a>
-            <a href="https://www.linkedin.com/company/make-bold-solutions" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-              <Linkedin className="h-5 w-5" />
-              <span className="sr-only">LinkedIn</span>
             </a>
           </div>
         </div>
