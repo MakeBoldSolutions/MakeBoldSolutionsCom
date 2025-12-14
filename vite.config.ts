@@ -11,10 +11,11 @@ export default defineConfig({
     metaImagesPlugin(),
   ],
   base: process.env.GITHUB_PAGES === 'true' ? '/MakeBoldSolutionsCom/' : '/',
+  publicDir: path.resolve(import.meta.dirname, "src", "public"),
   resolve: {
     alias: {
-      "@": path.resolve(import.meta.dirname, "client", "src"),
-      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+      "@": path.resolve(import.meta.dirname, "src"),
+      "@assets": path.resolve(import.meta.dirname, "src", "assets"),
     },
   },
   css: {
@@ -22,7 +23,7 @@ export default defineConfig({
       plugins: [],
     },
   },
-  root: path.resolve(import.meta.dirname, "client"),
+  root: import.meta.dirname,
   build: {
     outDir: path.resolve(import.meta.dirname, "docs"),
     emptyOutDir: true,

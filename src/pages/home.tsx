@@ -1,22 +1,9 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, Zap, TrendingUp, ChevronRight, Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { useToast } from "@/hooks/use-toast";
+import { ArrowRight, ShieldCheck, Zap, TrendingUp, Mail } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import heroBg from "@assets/generated_images/abstract_modern_dark_corporate_background_with_geometric_lines.png";
 
 export default function Home() {
-  const { toast } = useToast();
-
-  const handleNotify = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "You're on the list!",
-      description: "We'll notify you when Make Bold Solutions launches.",
-    });
-  };
-
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden selection:bg-primary selection:text-primary-foreground">
       {/* Navigation Overlay */}

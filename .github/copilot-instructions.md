@@ -1,51 +1,57 @@
 # Make Bold Solutions Copilot Instructions
 
 ## Project Overview
-Modern static marketing website for Make Bold Solutions, built with React 19, Vite 7, TypeScript, and TailwindCSS 4. This is a single-page application (SPA) with no backend or routing—all content lives in [client/src/pages/home.tsx](../client/src/pages/home.tsx).
+Modern static marketing website for Make Bold Solutions, built with React 19, Vite 7, TypeScript, and TailwindCSS 4. This is a single-page application (SPA) with no backend or routing—all content lives in [src/pages/home.tsx](../src/pages/home.tsx).
 
 ## Architecture & Structure
 
 ### Key Design Decisions
-- **Monorepo-style structure**: Root-level config files, but all frontend code lives in `client/`
+- **Clean root structure**: Config files at root, all source code in `/src`
 - **TailwindCSS 4 with Vite plugin**: Uses `@tailwindcss/vite`, not PostCSS plugin. Configured in [vite.config.ts](../vite.config.ts)
-- **Path aliases**: `@/` → `client/src/`, `@assets/` → `attached_assets/`. Must use these consistently across the codebase
-- **Custom Vite plugin**: [vite-plugin-meta-images.ts](../vite-plugin-meta-images.ts) auto-updates OpenGraph image URLs for Replit deployment domains
-- **Dark theme by default**: CSS custom properties in [client/src/index.css](../client/src/index.css) define dark slate theme with vibrant blue primary color
+- **Path aliases**: `@/` → `src/`, `@assets/` → `src/assets/`. Must use these consistently across the codebase
+- **Custom Vite plugin**: [vite-plugin-meta-images.ts](../vite-plugin-meta-images.ts) auto-updates OpenGraph image URLs for deployment domains
+- **Dark theme by default**: CSS custom properties in [src/index.css](../src/index.css) define dark slate theme with vibrant blue primary color
 
 ### Directory Layout
 ```
 MakeBoldSolutionsCom/
-├── client/                          # Frontend root (Vite root)
-│   ├── src/
-│   │   ├── pages/home.tsx          # Single-page app content (the whole site)
-│   │   ├── components/ui/          # shadcn/ui components (customized)
-│   │   ├── lib/utils.ts            # cn() utility for className merging
-│   │   └── hooks/                  # React hooks (use-toast, use-mobile)
-│   ├── public/                      # Static assets (favicon, opengraph.png)
-│   └── index.html                   # Entry HTML
-├── attached_assets/                 # Brand assets (logos, hero images)
-│   └── generated_images/           # Generated brand images
-├── vite-plugin-meta-images.ts      # Custom plugin for meta tag injection
-└── docs/                           # Build output (committed for GitHub Pages)
+├── src/                             # All source code
+│   ├── pages/home.tsx              # Single-page app content (the whole site)
+│   ├── components/ui/              # shadcn/ui components (customized)
+│   ├── lib/utils.ts                # cn() utility for className merging
+│   ├── hooks/                      # React hooks (use-toast, use-mobile)
+│   ├── assets/                     # Images, brand assets, generated images
+│   │   └── generated_images/      # Generated brand images
+│   ├── public/                     # Static assets (favicon, opengraph, robots.txt)
+│   ├── index.css                   # Global styles, TailwindCSS theme
+│   ├── App.tsx                     # Root React component
+│   └── main.tsx                    # Application entry point
+├── index.html                      # Entry HTML
+├── vite.config.ts                  # Vite build configuration
+├── components.json                 # shadcn/ui configuration
+├── tsconfig.json                   # TypeScript configuration
+├── package.json                    # Dependencies and scripts
+├── vite-plugin-meta-images.ts     # Custom plugin for meta tag injection
+└── docs/                          # Build output (committed for GitHub Pages)
 ```
 
 ## Technology Stack & Component Patterns
 
 ### UI Component Library (shadcn/ui)
-- Uses shadcn/ui components (badge, button, card, etc.) from [client/src/components/ui/](../client/src/components/ui/)
-- **Customization**: Components have inline `@replit` comments marking customizations from defaults
-- **Styling approach**: Uses `class-variance-authority` (cva) for variant-based styling. See [button.tsx](../client/src/components/ui/button.tsx) as reference
+- Uses shadcn/ui components (badge, button, card, etc.) from [src/components/ui/](../src/components/ui/)
+- **Customization**: Components have inline `@custom` or `Custom:` comments marking customizations from defaults
+- **Styling approach**: Uses `class-variance-authority` (cva) for variant-based styling. See [button.tsx](../src/components/ui/button.tsx) as reference
 - **className merging**: Always use `cn()` from `@/lib/utils` when combining classes
 - Configuration in [components.json](../components.json) defines import aliases and style preferences
 
 ### Styling & Theming
-- **TailwindCSS 4 inline theme**: Theme tokens defined in `@theme inline` block in [index.css](../client/src/index.css)
+- **TailwindCSS 4 inline theme**: Theme tokens defined in `@theme inline` block in [index.css](../src/index.css)
 - **Custom classes**: `.glass-card` (frosted glass effect), `.text-gradient` (blue-to-teal gradient)
 - **Design system**: Dark slate background (hsl(222 47% 11%)), vibrant blue primary (hsl(217 91% 60%))
 - **Typography**: `font-sans` → Plus Jakarta Sans, `font-display` → Space Grotesk (both from Google Fonts)
 
 ### Animation & Interactions
-- **Framer Motion**: Used for page entrance animations and scroll-triggered effects. See [home.tsx](../client/src/pages/home.tsx) for patterns
+- **Framer Motion**: Used for page entrance animations and scroll-triggered effects. See [home.tsx](../src/pages/home.tsx) for patterns
 - **Toast notifications**: Sonner library via shadcn/ui's `<Toaster />` component. Use `useToast()` hook for programmatic toasts
 
 ## Development Workflows
@@ -62,13 +68,12 @@ npm run check            # TypeScript type checking
 **Important**: Dev server runs on port **5010**, not the Vite default 5173. This is hardcoded in [package.json](../package.json) and [vite.config.ts](../vite.config.ts).
 
 ### Build & Deployment
-- Build outputs to `docs/` directory (not `client/docs/` despite Vite root being `client/`)
+- Build outputs to `docs/` directory (not `src/docs/` despite Vite root)
 - **GitHub Pages**: The `docs/` folder is committed to the repository and served via GitHub Pages
   - Use `GITHUB_PAGES=true npm run build` to set proper base path for subdirectory hosting
   - `.nojekyll` file prevents Jekyll processing
   - `404.html` provides SPA fallback
-- Configured for Replit deployment with meta image plugin that auto-detects `REPLIT_INTERNAL_APP_DOMAIN` or `REPLIT_DEV_DOMAIN`
-- Also compatible with other static hosting providers (Netlify, Vercel, Azure Static Web Apps)
+- Compatible with static hosting providers (GitHub Pages, Netlify, Vercel, Azure Static Web Apps)
 
 ## Code Conventions
 
@@ -84,15 +89,15 @@ npm run check            # TypeScript type checking
 - **Asset imports**: Import images from `@assets/` path alias, not relative paths
 
 ### Component Structure
-- **Layout**: No router—all content in single `<Home />` component in [App.tsx](../client/src/App.tsx)
-- **UI components**: Export both component and any associated types/utilities (see [button.tsx](../client/src/components/ui/button.tsx))
+- **Layout**: No router—all content in single `<Home />` component in [App.tsx](../src/App.tsx)
+- **UI components**: Export both component and any associated types/utilities (see [button.tsx](../src/components/ui/button.tsx))
 - **Accessibility**: Include `sr-only` spans for icon-only buttons, proper semantic HTML
 
 ## Important Files to Reference
 
 - [vite.config.ts](../vite.config.ts) - Build config, path aliases, custom plugin setup
-- [client/src/index.css](../client/src/index.css) - Theme variables, custom utilities, TailwindCSS 4 setup
-- [client/src/pages/home.tsx](../client/src/pages/home.tsx) - Main app content, animation patterns, component usage
+- [src/index.css](../src/index.css) - Theme variables, custom utilities, TailwindCSS 4 setup
+- [src/pages/home.tsx](../src/pages/home.tsx) - Main app content, animation patterns, component usage
 - [components.json](../components.json) - shadcn/ui configuration for adding new components
 - [vite-plugin-meta-images.ts](../vite-plugin-meta-images.ts) - Custom build logic for OpenGraph images
 
@@ -100,12 +105,12 @@ npm run check            # TypeScript type checking
 
 ### Adding a New UI Component
 1. Use shadcn/ui CLI if component exists: `npx shadcn@latest add <component-name>`
-2. Components install to `client/src/components/ui/` automatically (per [components.json](../components.json))
-3. Customize variants in the component file if needed, mark with `@replit` comments
+2. Components install to `src/components/ui/` automatically (per [components.json](../components.json))
+3. Customize variants in the component file if needed, mark with `@custom` or `Custom:` comments
 
 ### Adding New Images
-- Brand/marketing images → `attached_assets/generated_images/`
-- Public assets (favicon, OG image) → `client/public/`
+- Brand/marketing images → `src/assets/generated_images/`
+- Public assets (favicon, OG image) → `src/public/`
 - Import using `@assets/` alias in code
 
 ### Styling New Components
@@ -118,12 +123,12 @@ npm run check            # TypeScript type checking
 1. Build with base path: `GITHUB_PAGES=true npm run build` (Windows: `$env:GITHUB_PAGES='true'; npm run build`)
 2. Commit and push the `docs/` folder
 3. Ensure GitHub Pages is enabled in repo settings (source: main branch /docs folder)
-4. Files in `client/public/` (`.nojekyll`, `404.html`) are copied to `docs/` automatically during build
+4. Files in `src/public/` (`.nojekyll`, `404.html`) are copied to `docs/` automatically during build
 
 ## Known Quirks & Gotchas
 
 - **TailwindCSS v4**: Uses new `@import "tailwindcss"` syntax, not `@tailwind` directives
-- **Vite root mismatch**: Vite root is `client/`, but build outputs to workspace root's `docs/`
+- **Vite root mismatch**: Vite root is now the project root, build outputs to `docs/`
 - **TypeScript config**: Includes paths for `shared/` and `server/` that don't exist (legacy from template)
 - **Button customizations**: shadcn/ui button component has custom variants—check inline comments before modifying
 - **Port 5010**: Always dev server port, never use default 5173
