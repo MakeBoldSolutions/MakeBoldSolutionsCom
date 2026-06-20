@@ -133,7 +133,7 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6 flex flex-col items-center text-center">
           <Logo variant="dark" className="mb-6" />
           <p className="text-secondary-foreground/60 text-sm mb-8">
-            &copy; {new Date().getFullYear()} Make Bold Solutions. All rights reserved.
+            &copy; {new Date().getFullYear()} Make Bold Solutions LLC. All rights reserved.
           </p>
           <a
             href="mailto:Lesley.Hazleton@makeboldsolutions.com"
