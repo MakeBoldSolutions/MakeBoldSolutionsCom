@@ -12,4 +12,24 @@
       <image:caption>Executive-level CFO and CTO expertise for growing companies</image:caption>
     </image:image>
   </url>
+  <url>
+    <loc>https://makeboldsolutions.com/markhazleton/card</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://makeboldsolutions.com/contacts/mark-hazleton.jpg</image:loc>
+      <image:title>Mark W. Hazleton — Chief Technology Officer, Make Bold Solutions</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://makeboldsolutions.com/lesleyhazleton/card</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://makeboldsolutions.com/contacts/lesley-hazleton.jpg</image:loc>
+      <image:title>Lesley B. Hazleton — Chief Executive Officer, Make Bold Solutions</image:title>
+    </image:image>
+  </url>
 </urlset>

@@ -27,6 +27,13 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "docs"),
     emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: path.resolve(import.meta.dirname, "index.html"),
+        markCard: path.resolve(import.meta.dirname, "markhazleton/card/index.html"),
+        lesleyCard: path.resolve(import.meta.dirname, "lesleyhazleton/card/index.html"),
+      },
+    },
   },
   server: {
     host: "0.0.0.0",
