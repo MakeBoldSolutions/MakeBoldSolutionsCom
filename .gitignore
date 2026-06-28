@@ -1,10 +1,7 @@
 # Dependencies
 node_modules
 
-# Build output
-# Note: docs/ is NOT ignored - it's used for GitHub Pages deployment
-dist
-server/public
+# Note: docs/ is NOT ignored - it's the GitHub Pages deployment output
 
 # Environment variables
 .env
@@ -31,9 +28,3 @@ yarn-error.log*
 # Temporary files
 *.tar.gz
 *.tmp
-vite.config.ts.*
-
-# Database
-*.db
-*.sqlite
-migrations/

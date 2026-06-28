@@ -1,0 +1,493 @@
+{
+  "site": {
+    "title": "Make Bold Solutions",
+    "url": "https://makeboldsolutions.com",
+    "description": "Make Bold Solutions delivers fractional CFO and strategic financial leadership to growing businesses, sole proprietors, and nonprofits — experienced guidance and hands-on partnership, engaged at the scope you need.",
+    "email": "contact@makeboldsolutions.com",
+    "phone": "+1 (555) 123-4567",
+    "location": "Wichita, Kansas",
+    "linkedin": "https://www.linkedin.com/in/lesleyhazleton",
+    "linkedinCompany": "https://www.linkedin.com/company/makeboldsolutions/",
+    "copyright": "Make Bold Solutions",
+    "logoNav": "logo-nav.svg",
+    "logoFooter": "logo-footer.png"
+  },
+  "nav": {
+    "links": [
+      { "href": "index.html", "label": "Home" },
+      { "href": "services-cfo.html", "label": "Services" },
+      { "href": "about.html", "label": "Our Firm" },
+      { "href": "contact.html", "label": "Contact", "primary": true }
+    ]
+  },
+  "footer": {
+    "tagline": "Strategic financial leadership for small and midsize businesses, sole proprietors, and nonprofits.",
+    "services": [
+      { "label": "Fractional CFO", "href": "services-cfo.html" },
+      { "label": "Fractional Corporate Controller", "href": "services-cfo.html" },
+      { "label": "Strategic Tax Planning", "href": "services-cfo.html" },
+      { "label": "Tax Preparation", "href": "services-cfo.html" },
+      { "label": "Business Optimization", "href": "services-cfo.html" },
+      { "label": "Nonprofit Governance", "href": "services-cfo.html" }
+    ],
+    "company": [
+      { "label": "About Us", "href": "about.html" },
+      { "label": "CFO of the Year", "href": "cfo-of-the-year.html" },
+      { "label": "Contact", "href": "contact.html" }
+    ],
+    "spark": { "label": "Make Bold Spark ↗", "href": "https://makeboldspark.com" }
+  },
+  "home": {
+    "hero": {
+      "badge": "Fractional CFO & Financial Leadership",
+      "headingLine1": "Big Firm Expertise.",
+      "headingLine2": "Small Firm Heart.",
+      "description": "Make Bold Solutions delivers senior-level financial leadership to growing businesses, sole proprietors, and nonprofits. Fractional by design — experienced CFO guidance and hands-on partnership, engaged at the scope and pace your organization needs.",
+      "awardText": "Lesley Hazleton, CPA — Wichita Business Journal CFO of the Year, 2023",
+      "ctaPrimary": { "label": "Get in Touch", "href": "contact.html" },
+      "ctaSecondary": {
+        "label": "Get a Cash Flow Snapshot",
+        "href": "services-cfo.html"
+      },
+      "image": {
+        "src": "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
+        "alt": "Small business financial consultation"
+      }
+    },
+    "proofBar": [
+      { "value": "30+", "label": "Years Experience", "highlight": false },
+      { "value": "CPA", "label": "Licensed & Certified", "highlight": false },
+      { "value": "2023", "label": "CFO of the Year", "highlight": true },
+      { "value": "PwC", "label": "Alumni", "highlight": false }
+    ],
+    "services": {
+      "heading": "How We Help",
+      "description": "Whether you need cash flow clarity, a budget you can actually use, or someone to sit on your nonprofit board — we bring the expertise and do the work alongside you.",
+      "cards": [
+        {
+          "title": "Fractional CFO",
+          "description": "Cash flow clarity, budgeting and forecasting you can act on, audit preparation, and strategic financial planning — senior-level leadership engaged at the scope and pace your business requires.",
+          "href": "services-cfo.html",
+          "icon": "bar-chart",
+          "features": [
+            "Cash Flow Management",
+            "Budgeting & Forecasting",
+            "Audit Preparation",
+            "Financial Reporting"
+          ]
+        },
+        {
+          "title": "Business Optimization",
+          "description": "From bookkeeping cleanup to building a close rhythm to getting your financial systems right — we help you build a foundation for confident decision-making.",
+          "href": "services-cfo.html",
+          "icon": "briefcase",
+          "features": [
+            "Books Cleanup & Close Rhythm",
+            "Process Improvement",
+            "ERP & Systems Support",
+            "Growth Planning"
+          ]
+        },
+        {
+          "title": "Nonprofit Governance",
+          "description": "Board treasurer services, financial governance, and compliance support — the same rigor and commitment we bring to every client, applied to organizations doing important community work.",
+          "href": "services-cfo.html",
+          "icon": "hand-heart",
+          "features": [
+            "Board Treasurer Services",
+            "Financial Governance",
+            "Grant & Fund Management",
+            "Compliance Support"
+          ]
+        },
+        {
+          "title": "Fractional Corporate Controller",
+          "description": "Full-cycle accounting oversight, month-end close, reporting, and financial controls — the discipline and rigor of a dedicated controller, scaled to your engagement.",
+          "href": "services-cfo.html",
+          "icon": "briefcase",
+          "features": [
+            "Month-End Close Management",
+            "Financial Controls & Compliance",
+            "Accounting Oversight",
+            "Internal Reporting"
+          ]
+        },
+        {
+          "title": "Strategic Tax Planning",
+          "description": "Proactive tax strategy to minimize your liability and position your business for long-term financial health — not just at filing season.",
+          "href": "services-cfo.html",
+          "icon": "trending-up",
+          "features": [
+            "Tax Strategy & Planning",
+            "Entity Structure Optimization",
+            "Deduction & Credit Maximization",
+            "Year-Round Tax Advisory"
+          ]
+        },
+        {
+          "title": "Tax Preparation",
+          "description": "Accurate, thorough tax preparation for businesses, sole proprietors, and nonprofits — filed correctly and on time.",
+          "href": "services-cfo.html",
+          "icon": "book",
+          "features": [
+            "Business Tax Returns",
+            "Sole Proprietor Filing",
+            "Nonprofit Tax Compliance",
+            "Multi-State Filing"
+          ]
+        }
+      ]
+    },
+    "whyUs": {
+      "heading": "Why Choose Us",
+      "quote": "\"Every business deserves a great CFO.\"",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        "alt": "Business consultation meeting"
+      },
+      "reasons": [
+        {
+          "title": "Direct Senior-Level Access",
+          "description": "No junior associates, no hand-offs. You get direct access to a seasoned, award-winning CPA who personally handles your finances and knows your business.",
+          "icon": "phone"
+        },
+        {
+          "title": "Built for Businesses Others Overlook",
+          "description": "Most accounting firms pass over small businesses and sole proprietors. We exist specifically to serve you — bringing the same expertise that Fortune 500 companies get, on your terms and within your budget.",
+          "icon": "users"
+        },
+        {
+          "title": "Outcomes, Not Billable Hours",
+          "description": "We focus on results you can see: cash flow clarity, a budget you can use, books you can trust, and a financial plan that actually helps you make decisions.",
+          "icon": "trending-up"
+        }
+      ]
+    },
+    "entryOffers": {
+      "heading": "Getting Started Is Easy",
+      "description": "Not sure what you need? Start with one of our focused engagements. No long-term commitment required — just real help with a real financial challenge.",
+      "offers": [
+        {
+          "title": "Cash Flow Snapshot",
+          "description": "A clear picture of where your cash is going and a plan to stabilize it.",
+          "icon": "bar-chart"
+        },
+        {
+          "title": "Books Cleanup Plan",
+          "description": "Get your books in order with a structured cleanup and a monthly close rhythm.",
+          "icon": "check-circle"
+        },
+        {
+          "title": "Budget & Forecast Build",
+          "description": "A budget and forecast you can actually use to make confident business decisions.",
+          "icon": "trending-up"
+        },
+        {
+          "title": "Nonprofit Kickstart",
+          "description": "Board treasurer services and governance setup for nonprofits ready to strengthen their finances.",
+          "icon": "hand-heart"
+        }
+      ]
+    },
+    "cta": {
+      "heading": "Ready to take the next step?",
+      "description": "Whether you're a growing business, a sole proprietor, or a nonprofit — let's have a conversation about how we can help. No obligation, no pressure.",
+      "ctaPrimary": { "label": "Get in Touch", "href": "contact.html" },
+      "ctaSecondary": {
+        "label": "Explore Services",
+        "href": "services-cfo.html"
+      }
+    },
+    "spark": {
+      "eyebrow": "Make Bold Spark",
+      "heading": "When the Problem Needs a Technical Solution, We Build It.",
+      "description": "Make Bold Spark is the technical arm of Make Bold Solutions — a suite of open source software and rapid-build tools created to solve real financial services problems. When off-the-shelf software isn't enough, Spark enables us to engineer exactly what's needed.",
+      "capabilities": [
+        {
+          "title": "Rapid Technical Solutions",
+          "description": "From concept to working solution in days, not months — purpose-built to solve the specific financial challenge at hand.",
+          "icon": "zap"
+        },
+        {
+          "title": "Open Source Software",
+          "description": "Tools built in the open and available to the broader financial services community, because better software makes for better businesses.",
+          "icon": "book"
+        },
+        {
+          "title": "Financial Systems Integration",
+          "description": "Connecting financial systems, automating workflows, and closing the technical gaps that slow your team down.",
+          "icon": "bar-chart"
+        }
+      ],
+      "cta": {
+        "label": "Explore Make Bold Spark",
+        "href": "https://makeboldspark.com"
+      }
+    }
+  },
+  "servicesCfo": {
+    "header": {
+      "label": "Services",
+      "heading": "Fractional CFO & Financial Leadership",
+      "description": "Strategic financial guidance for small businesses, sole proprietors, and nonprofits — on your terms and within your budget."
+    },
+    "main": {
+      "heading": "The Financial Partner You've Been Looking For",
+      "paragraphs": [
+        "Most small businesses and sole proprietors can't justify a full-time CFO — but that doesn't mean they don't need one. Whether you're scaling up, cleaning up your books, or planning for the future, you deserve the same quality of financial leadership that typical accounting firms reserve for their largest clients.",
+        "That's where we come in. Both co-founders, Lesley and Mark Hazleton, are PricewaterhouseCoopers alumni — Lesley on the accounting side, Mark on the consulting side. Combined with over 30 years of experience across Fortune 500 divisions and growing businesses, that depth of expertise is now available to your organization."
+      ],
+      "capabilities": [
+        "Cash Flow Forecasting & Management",
+        "Budgeting, Planning & Financial Analysis",
+        "Bookkeeping Cleanup & Monthly Close Rhythm",
+        "Audit Preparation & Compliance",
+        "Cost Optimization & Margin Improvement",
+        "ERP & Financial Systems Implementation",
+        "Nonprofit Board Treasurer & Governance",
+        "Growth Planning & Strategic Advisory",
+        "Fractional Corporate Controller Services",
+        "Strategic Tax Planning & Advisory",
+        "Tax Preparation & Compliance",
+        "Multi-State & International Tax Support"
+      ]
+    },
+    "entryOffers": {
+      "heading": "Start Where You Need Help Most",
+      "description": "Not sure where to begin? Pick one focused engagement to start. No long-term contracts — just clear deliverables and real results.",
+      "offers": [
+        {
+          "title": "Cash Flow Snapshot",
+          "description": "A clear picture of where your cash is going and a concrete plan to stabilize it.",
+          "tag": "Quick-Start Engagement",
+          "icon": "bar-chart"
+        },
+        {
+          "title": "Books Cleanup Plan",
+          "description": "Get your books in order with a structured cleanup and a monthly close rhythm you can maintain.",
+          "tag": "Quick-Start Engagement",
+          "icon": "book"
+        },
+        {
+          "title": "Budget & Forecast Build",
+          "description": "A budget and forecast you can actually use to make decisions, track progress, and plan ahead.",
+          "tag": "Quick-Start Engagement",
+          "icon": "trending-up"
+        },
+        {
+          "title": "Nonprofit Kickstart",
+          "description": "Board treasurer services and governance setup for nonprofits ready to strengthen their finances.",
+          "tag": "Pro Bono Available",
+          "icon": "hand-heart"
+        }
+      ]
+    },
+    "thirtyDays": {
+      "heading": "What Your First 30 Days Look Like",
+      "steps": [
+        {
+          "title": "Discovery Conversation",
+          "description": "We start with a no-obligation conversation to understand your business, your challenges, and where you need help most. No jargon, no pressure."
+        },
+        {
+          "title": "Financial Assessment",
+          "description": "We review your books, cash flow, and financial processes to identify the highest-impact areas for improvement and build a clear action plan."
+        },
+        {
+          "title": "Hands-On Execution",
+          "description": "We get to work — cleaning up books, building budgets, setting up reports, or whatever your business needs most. You'll see results, not slide decks."
+        }
+      ]
+    },
+    "whoWeServe": {
+      "heading": "Who We Serve",
+      "segments": [
+        {
+          "title": "Small & Midsize Businesses",
+          "description": "Growing companies that need experienced financial leadership but aren't ready for a full-time CFO. We step in as a trusted partner to help you manage cash flow, plan strategically, and build a strong financial foundation."
+        },
+        {
+          "title": "Sole Proprietors",
+          "description": "Business owners who want to optimize their operations for strong financial management. From organizing your books to planning for growth, we bring the expertise to help you run your business with confidence."
+        },
+        {
+          "title": "Nonprofits",
+          "description": "Organizations doing important work that deserve strong financial governance. We provide board treasurer services and pro bono guidance — because sound financial management shouldn't be out of reach."
+        }
+      ]
+    }
+  },
+  "about": {
+    "hero": {
+      "label": "About the Firm",
+      "headingLine1": "Big-firm experience,",
+      "headingLine2": "boutique-firm care.",
+      "paragraphs": [
+        "Make Bold Solutions was founded on a simple belief: every business deserves access to experienced financial leadership — not just the ones big enough to be on a typical accounting firm's radar.",
+        "Led by Lesley Hazleton, CPA, an award-winning finance executive with over 30 years of experience, we bring the kind of hands-on financial guidance that small businesses, sole proprietors, and nonprofits have historically gone without — delivered with direct, senior-level attention.",
+        "We also believe in giving back. Lesley serves on nonprofit boards and provides pro bono financial guidance to organizations doing meaningful work in the community. Strong financial management shouldn't be a luxury — it should be available to every organization working to make a difference."
+      ]
+    },
+    "stats": [
+      { "value": "30+", "label": "Years Experience" },
+      { "value": "$500M+", "label": "Value Created" },
+      { "value": "40+", "label": "Engagements" }
+    ],
+    "leader": {
+      "name": "Lesley Hazleton, CPA",
+      "initials": "LH",
+      "title": "Founder & CEO",
+      "education": "MBA, Tulane University - A.B. Freeman School of Business",
+      "awardTitle": "Wichita Business Journal CFO of the Year, 2023",
+      "awardDescription": "Recognized for excellence in financial leadership and community impact",
+      "bio": [
+        "Lesley is an experienced finance executive with over 30 years of hands-on leadership across public accounting, consulting, and multiple industries. She has served as CFO and senior finance leader for organizations ranging from $11M startups to $700M global divisions — and she brings that same depth of expertise to every client, regardless of size.",
+        "A PricewaterhouseCoopers alumna on the accounting side, Lesley went on to take on progressive leadership roles at Corning Inc., Goodrich, Elbit Systems of America, and FreeFlight Systems. She went on to serve as a Partner at SeatonHill Partners, a premier fractional and interim CFO firm, before co-founding Make Bold Solutions alongside her husband Mark — also a PwC alumnus, from the consulting practice — to bring that combined depth of expertise to smaller businesses.",
+        "Beyond her client work, Lesley is deeply committed to community service. She serves as Board Treasurer for Girl Scouts of the Kansas Heartland and as a Trustee for the Kansas Children's Service League Foundation — bringing the same rigor and care to nonprofit governance that she brings to her business clients."
+      ],
+      "accomplishments": [
+        "Wichita Business Journal CFO of the Year honoree (2023)",
+        "Helped an $11M engineering firm build financial infrastructure to support growth across 6 locations",
+        "Guided a family-owned business through crisis recovery and $12.5M capital expansion",
+        "Led finance for a $700M global division at Goodrich across 9 facilities in 4 countries",
+        "Partner at SeatonHill, a premier fractional and interim CFO services firm",
+        "Board Treasurer, Girl Scouts of the Kansas Heartland"
+      ]
+    },
+    "cofounder": {
+      "name": "Mark Hazleton",
+      "initials": "MH",
+      "title": "Founder & CTO",
+      "bio": [
+        "Mark brings more than 30 years of software architecture and technology leadership to Make Bold Solutions. His background spans consulting, enterprise, and healthcare systems — with deep expertise in cloud architecture on Microsoft Azure, .NET application development, and AI-assisted delivery.",
+        "Make Bold Solutions brings financial clarity through CFO leadership and strategic guidance — and Mark ensures clients have the systems and tools to act on it. Whether that means evaluating a new platform, connecting business data to better workflows, or simply asking the right technical questions before a major decision, he bridges the gap between financial strategy and the technology that supports it.",
+        "Mark is the creator of DevSpark, an open-source framework for structured AI-assisted software development, and the founder of Project Mechanics, a delivery methodology refined across two decades of real engagements. He writes publicly about architecture and technology at markhazleton.com."
+      ],
+      "highlights": [
+        "30+ years of software architecture and technology leadership",
+        "Deep expertise in Microsoft Azure cloud architecture and .NET development",
+        "Creator of DevSpark — open-source AI-assisted development framework",
+        "Founder of Project Mechanics delivery methodology",
+        "PricewaterhouseCoopers alumni — consulting practice"
+      ],
+      "website": "https://markhazleton.com",
+      "websiteDisplay": "markhazleton.com",
+      "linkedin": "https://www.linkedin.com/in/markhazleton/"
+    },
+    "cta": {
+      "heading": "Let's work together.",
+      "description": "Whether you're a growing business, a sole proprietor, or a nonprofit — we'd love to hear from you. No obligation, no pressure.",
+      "ctaLabel": "Get in Touch",
+      "ctaHref": "contact.html"
+    }
+  },
+  "cfoOfTheYear": {
+    "header": {
+      "label": "Recognition",
+      "heading": "Wichita 2023 CFO of the Year",
+      "description": "Lesley Hazleton, CPA, was honored by the Wichita Business Journal as one of Wichita's top CFOs in their 2023 CFO Awards program."
+    },
+    "awardInfo": {
+      "title": "Wichita Business Journal CFO Awards 2023",
+      "paragraphs": [
+        "The annual awards program, now in its 14th year, recognizes outstanding financial leaders in the Wichita region. Over 230 financial leaders have been recognized since the program's inception. The 2023 awards were presented at a luncheon on January 12, 2023, at the Hyatt Regency Wichita.",
+        "Honorees are selected through an independent process based entirely on merit, professional achievements, and contributions to the local community."
+      ]
+    },
+    "article": {
+      "introHeading": "A Personal Note from Lesley",
+      "introParagraph": "Winning the CFO of the Year Award in Wichita has been one of the most rewarding experiences of my career. It's not just an acknowledgment of professional success, but also a testament to the passion and resilience required to thrive in the fast-paced world of finance.",
+      "sections": [
+        {
+          "heading": "How I Found My Calling in Finance",
+          "paragraphs": [
+            "My journey in finance began unexpectedly. I took an accounting class in high school and quickly discovered that I had an aptitude for numbers. Although what I learned was merely the basics of bookkeeping, I fell in love with the underlying theories. I realized early on that solving complex financial challenges was not only stimulating but deeply fulfilling.",
+            "Over the years, my passion for finance has grown through hands-on experience in public accounting, consulting, and manufacturing. Every step in my career reinforced that true problem solving lies at the heart of effective financial management."
+          ]
+        },
+        {
+          "heading": "The Role of Mentorship",
+          "paragraphs": [
+            "One pivotal moment in my career was working with Steiner Eberle, the VP of Marketing at Corning Cable Systems. Steiner was more than just a mentor; he challenged me to see beyond traditional problem solving. He encouraged me to develop a financial vision and actively use my skills to shape the future of the business.",
+            "His guidance not only uncovered talents I wasn't aware of, but also provided me with opportunities to grow and take on responsibilities that have been integral to my professional journey."
+          ]
+        },
+        {
+          "heading": "Overcoming Challenges in a Rapidly Growing Environment",
+          "paragraphs": [
+            "As a CFO, one of the biggest challenges I've faced is managing rapid growth. While growth is undeniably exciting, it brings with it a host of challenges that touch every part of an organization. Balancing working capital, addressing labor issues, and ensuring that every process is scalable in an ever-changing environment is no small feat.",
+            "Yet, it is precisely this intensity that makes the role so rewarding. Each obstacle has taught me the importance of adaptability, strategic planning, and collaborative leadership."
+          ]
+        },
+        {
+          "heading": "What I Cherish Most in My Career",
+          "paragraphs": [
+            "Reflecting on my career, I believe my greatest professional achievement has been the ability to drive transformative growth. I've been fortunate to work in various sectors — from public accounting and consulting to manufacturing — and each experience has enriched my expertise.",
+            "My training in software integration, lean methodologies, and six sigma has allowed me to not only identify and solve complex issues but also to build a vision that resonates with my team. Collaborating and harnessing our collective strengths to overcome challenges remains my proudest accomplishment."
+          ]
+        }
+      ]
+    },
+    "quotes": [
+      {
+        "topic": "On choosing finance",
+        "text": "I took an accounting class in high school and realized that I had an aptitude. In college, I learned that my high school class was really just bookkeeping; but I loved the theory I learned. It really takes a problem solver to address complex accounting and finance issues."
+      },
+      {
+        "topic": "On mentorship",
+        "text": "I worked with Steiner Eberle, VP Marketing at Corning Cable Systems, early in my career. He encouraged me not only to act as a problem solver but also to proactively use my skills to develop a financial vision. His mentorship helped me grow in ways I never anticipated."
+      },
+      {
+        "topic": "On the biggest challenge as a CFO",
+        "text": "Rapid growth is the biggest challenge I've encountered. Growth sounds exciting, but it impacts every facet of an organization simultaneously. It forces us to identify weaknesses, improve processes, and scale the business in an environment of constant change. Despite these challenges, the rewards are immense."
+      },
+      {
+        "topic": "On her greatest professional achievement",
+        "text": "My greatest achievement has been learning how to apply my education, skills, and experience to drive growth and transform companies. Every organization has unique challenges, and I've learned to partner with my team to create a shared vision that leads us to success."
+      },
+      {
+        "topic": "On Wichita",
+        "text": "I love Wichita! Moving here has been the best decision I've made. Beyond reduced traffic and shorter commutes, it's the quality of life — from fantastic restaurants to vibrant arts and a welcoming community. Wichita is a place where people care, and that truly makes it feel like home."
+      }
+    ]
+  },
+  "contact": {
+    "header": {
+      "label": "Let's Connect",
+      "heading": "Start the conversation.",
+      "description": "The best engagements start with a real conversation. Reach out directly on LinkedIn — we welcome connections from business owners, executives, and nonprofit leaders who want to talk strategy."
+    },
+    "profiles": [
+      {
+        "type": "company",
+        "name": "Make Bold Solutions",
+        "title": "Fractional CFO & Financial Leadership",
+        "description": "Follow our company page for insights on fractional leadership, financial strategy, and what's working for growing businesses.",
+        "href": "https://www.linkedin.com/company/makeboldsolutions/",
+        "label": "Follow on LinkedIn"
+      },
+      {
+        "type": "person",
+        "name": "Lesley Hazleton, CPA",
+        "title": "Co-Founder & Managing Partner",
+        "description": "2023 WBJ CFO of the Year. 30+ years across PwC, Fortune 500 divisions, and growing businesses. Connect to start a conversation about your financial strategy.",
+        "href": "https://www.linkedin.com/in/lesleyhazleton",
+        "label": "Connect with Lesley"
+      },
+      {
+        "type": "person",
+        "name": "Mark Hazleton",
+        "title": "Co-Founder & CTO",
+        "description": "PwC consulting alumnus. Bridges financial strategy and the technology that supports it — from systems evaluation to data-driven decision-making.",
+        "href": "https://www.linkedin.com/in/markhazleton/",
+        "label": "Connect with Mark"
+      }
+    ]
+  },
+  "notFound": {
+    "heading": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "ctaLabel": "Back to Home",
+    "ctaHref": "index.html"
+  }
+}

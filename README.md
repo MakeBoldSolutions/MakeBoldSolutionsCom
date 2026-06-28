@@ -1,6 +1,8 @@
 # Make Bold Solutions
 
-A modern, 100% static website built with React 19, Vite 7, TypeScript, and TailwindCSS 4. Optimized for GitHub Pages deployment.
+The marketing website for Make Bold Solutions — a fractional CFO firm led by Lesley Hazleton, CPA, based in Wichita, Kansas.
+
+The site is a Node.js static site generator: `build.js` reads content from `content.json` and writes flat HTML files to `docs/`. There is no backend, no database, and no client-side framework — just generated HTML with inline CSS and JavaScript.
 
 ## Prerequisites
 
@@ -14,155 +16,74 @@ A modern, 100% static website built with React 19, Vite 7, TypeScript, and Tailw
    npm install
    ```
 
-2. **Start the development server**
+2. **Start the dev server** (builds once, serves `docs/`, rebuilds on changes to `build.js` or `content.json`)
    ```bash
    npm run dev
    ```
 
-   The application will be available at: http://localhost:5010
+   The site will be available at: http://localhost:5000
 
 3. **Build for production**
    ```bash
-   npm run build              # Standard build
-   npm run build:github       # Build with GitHub Pages base path
+   npm run build
    ```
 
-   The built site will be in the `docs/` directory.
+   Output is written to `docs/`.
 
-4. **Preview production build**
+4. **Serve the built site without watching for changes**
    ```bash
-   npm run preview
+   npm run serve
    ```
 
 ## Available Scripts
 
-- `npm run dev` - Start development server on port 5010
-- `npm run build` - Complete build pipeline (clean, lint, type-check, test, build)
-- `npm run build:github` - Build for GitHub Pages with correct base path
-- `npm run clean` - Remove the docs/ directory
-- `npm run lint` - Run ESLint with strict rules
-- `npm run type-check` - Run TypeScript type checking
-- `npm run test` - Run tests (placeholder for now)
-- `npm run preview` - Preview the production build locally
+- `npm run build` - Run the static site generator (`build.js`) and write output to `docs/`
+- `npm run dev` - Build, serve `docs/` locally, and rebuild automatically when `build.js` or `content.json` changes
+- `npm run serve` - Serve the existing `docs/` output without rebuilding
 
 ## Project Structure
 
 ```
 MakeBoldSolutionsCom/
-├── src/                    # All source code
-│   ├── assets/            # Images and brand assets
-│   │   └── generated_images/
-│   ├── components/        # React components
-│   │   └── ui/           # shadcn/ui components
-│   ├── hooks/            # Custom React hooks
-│   ├── lib/              # Utilities
-│   ├── pages/            # Page components
-│   ├── public/           # Static assets (copied to build)
-│   │   ├── favicon.png
-│   │   ├── opengraph.jpg
-│   │   ├── robots.txt
-│   │   ├── sitemap.xml
-│   │   ├── 404.html      # SPA fallback for GitHub Pages
-│   │   └── .nojekyll     # Prevents Jekyll processing
-│   ├── App.tsx           # Root component
-│   ├── main.tsx          # Entry point
-│   └── index.css         # Global styles & theme
-├── docs/                 # Build output (committed for GitHub Pages)
-├── index.html            # Entry HTML
-├── vite.config.ts        # Vite configuration
-├── tsconfig.json         # TypeScript configuration
-├── eslint.config.js      # ESLint configuration
-└── components.json       # shadcn/ui configuration
+├── build.js              # Static site generator — the entire build pipeline
+├── content.json          # All site content: copy, nav links, page sections, contact info
+├── dev.js                # Local dev server with rebuild-on-change
+├── serve.js              # Plain static file server for docs/
+├── static/                # Source files copied into docs/ on every build
+│   ├── CNAME              # Custom domain for GitHub Pages
+│   ├── .nojekyll          # Prevents Jekyll processing
+│   ├── robots.txt
+│   ├── sitemap.xml
+│   ├── favicon.png / favicon.svg
+│   └── .well-known/security.txt
+├── attached_assets/       # Logo files, vCards, and contact photos used during build
+├── documentation/         # Brand guide, logo source files, project docs
+└── docs/                  # Build output (committed to git for GitHub Pages)
 ```
 
-## Technology Stack
+## Pages
 
-- **React 19** - UI library
-- **TypeScript 5.9** - Type safety
-- **Vite 7** - Build tool and dev server
-- **TailwindCSS 4** - Styling with @tailwindcss/vite plugin
-- **shadcn/ui** - Customizable component library
-- **Framer Motion** - Animation library
-- **Lucide React** - Icon library
-- **Sonner** - Toast notifications
+- **Home** (`index.html`)
+- **Services** (`services-cfo.html`) — Fractional CFO service details
+- **About / Our Firm** (`about.html`)
+- **CFO of the Year** (`cfo-of-the-year.html`) — Award recognition page
+- **Contact** (`contact.html`)
+- **Digital business cards** (`markhazleton/card/`, `lesleyhazleton/card/`) — vCard-enabled contact cards
 
-## Building for Production
+## Editing Content
 
-The build process includes:
-1. **Clean** - Removes previous build artifacts
-2. **Lint** - ESLint validation (zero warnings allowed)
-3. **Type-check** - TypeScript compilation check
-4. **Test** - Runs test suite
-5. **Build** - Vite production build
+Site copy, navigation, and page sections live in `content.json`. Edit that file and run `npm run build` to regenerate `docs/`.
 
-Standard build (for custom domain or other hosting):
+## Deployment
+
+GitHub Pages is configured to serve from the `main` branch, `/docs` folder, at the custom domain `makeboldsolutions.com` (see `static/CNAME`). After making changes:
+
 ```bash
 npm run build
-```
-
-The `docs/` directory will contain 100% static files ready for deployment.
-
-### GitHub Pages Deployment
-
-This project generates a 100% static site optimized for GitHub Pages:
-
-**Initial Setup:**
-1. In GitHub repository settings, enable GitHub Pages
-2. Set source to **"main branch /docs folder"**
-3. Save settings
-
-**Deploy Updates:**
-```bash
-npm run build:github        # Build with /MakeBoldSolutionsCom/ base path
-git add docs/
-git commit -m "Deploy to GitHub Pages"
+git add docs/ content.json build.js
+git commit -m "Update site content"
 git push origin main
 ```
-
-Your site will be live at: `https://<username>.github.io/MakeBoldSolutionsCom/`
-
-**What Makes It 100% Static:**
-- ✅ No server-side rendering required
-- ✅ All content pre-rendered at build time
-- ✅ SPA routing handled via 404.html fallback
-- ✅ `.nojekyll` prevents Jekyll processing
-- ✅ Correct base paths for subdirectory hosting
-- ✅ All assets fingerprinted and cached
-- ✅ Fully optimized CSS and JavaScript bundles
-
-**Custom Domain (Optional):**
-- Add a `CNAME` file to `public/` with your domain name
-- Configure DNS with your domain provider (A or CNAME record)
-- Use `npm run build` (without `:github` suffix) for root domain hosting
-- GitHub Pages will automatically use custom domain
-
-### Other Hosting Options
-
-The `docs/` folder contains standard static HTML/CSS/JS and works with:
-- **Netlify** - Drag & drop `docs/` folder or connect Git
-- **Vercel** - Import project, set output directory to `docs`
-- **Azure Static Web Apps** - Point to `docs/` directory
-- **AWS S3 + CloudFront** - Upload `docs/` contents
-- **Any static hosting** - Upload files from `docs/`
-
-## Development
-
-The site uses:
-- Vite's hot module replacement for instant updates during development
-- TypeScript for type safety and IntelliSense
-- TailwindCSS 4 with inline `@theme` configuration
-- Framer Motion for smooth page animations
-- ESLint for code quality
-- Path aliases: `@/` → `src/`, `@assets/` → `src/assets/`
-
-## Static Site Features
-
-This is a Single Page Application (SPA) compiled to static assets:
-- **Client-side rendering** - React hydrates the static HTML
-- **No backend required** - Runs entirely in the browser
-- **GitHub Pages compatible** - Custom 404.html handles routing
-- **SEO optimized** - Meta tags, structured data, sitemap.xml
-- **Performance** - Code splitting, lazy loading, optimized assets
 
 ## License
 
