@@ -1,5 +1,12 @@
 ---
-description: DevSpark checklist command shim.
+description: Generate a custom checklist for the current feature based on user requirements.
+handoffs:
+  - label: Implement Project
+    agent: devspark.implement
+    prompt: Start the implementation in phases
+  - label: Run Analysis
+    agent: devspark.analyze
+    prompt: Analyze spec consistency after checklist review
 ---
 
 ## Prompt Resolution
@@ -12,8 +19,12 @@ Read and execute the instructions from the **first file that exists**:
 2. `.documentation/commands/devspark.checklist.md` (team customization)
 3. `.devspark/defaults/commands/devspark.checklist.md` (stock default)
 
+Where `{git-user}` is the normalized slug from step above.
+
 ## User Input
 
+```text
 $ARGUMENTS
+```
 
 Pass the user input above to the resolved prompt.

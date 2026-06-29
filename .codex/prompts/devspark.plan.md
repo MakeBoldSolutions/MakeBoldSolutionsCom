@@ -1,5 +1,13 @@
 ---
-description: DevSpark plan command shim.
+description: Execute the implementation planning workflow using the plan template to generate design artifacts.
+handoffs:
+  - label: Create Tasks
+    agent: devspark.tasks
+    prompt: Break the plan into tasks
+    send: true
+  - label: Create Checklist
+    agent: devspark.checklist
+    prompt: Create a checklist for the following domain...
 ---
 
 ## Prompt Resolution
@@ -12,8 +20,12 @@ Read and execute the instructions from the **first file that exists**:
 2. `.documentation/commands/devspark.plan.md` (team customization)
 3. `.devspark/defaults/commands/devspark.plan.md` (stock default)
 
+Where `{git-user}` is the normalized slug from step above.
+
 ## User Input
 
+```text
 $ARGUMENTS
+```
 
 Pass the user input above to the resolved prompt.

@@ -1,5 +1,9 @@
 ---
-description: DevSpark pr-review command shim.
+description: Perform constitution-aware pull request review with actionable feedback for any PR in the repository
+handoffs:
+  - label: View Review History
+    agent: devspark.pr-review
+    prompt: Show me previous PR reviews in .documentation/specs/pr-review/
 ---
 
 ## Prompt Resolution
@@ -12,8 +16,12 @@ Read and execute the instructions from the **first file that exists**:
 2. `.documentation/commands/devspark.pr-review.md` (team customization)
 3. `.devspark/defaults/commands/devspark.pr-review.md` (stock default)
 
+Where `{git-user}` is the normalized slug from step above.
+
 ## User Input
 
+```text
 $ARGUMENTS
+```
 
 Pass the user input above to the resolved prompt.
