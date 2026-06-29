@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    @font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/BeVietnamPro-Medium.ttf") format("truetype"); }
+    @font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/BeVietnamPro-SemiBold.ttf") format("truetype"); }
+    @font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/BeVietnamPro-Bold.ttf") format("truetype"); }
+    @font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 800; font-display: swap; src: url("fonts/BeVietnamPro-ExtraBold.ttf") format("truetype"); }
+    @font-face { font-family: "Inter Tight"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("fonts/InterTight-VariableFont_wght.ttf") format("truetype"); }
+    html, body { margin: 0; background: #11100e; }
+  </style>
+</helmet>
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 412 208" xmlns="http://www.w3.org/2000/svg" style="background:#f8f6f2">
+    <g transform="translate(0,0) scale(0.7) translate(88,44)">
+      <path d="M287.64,207.95H0L236.35,24.05l51.3,183.9Z" fill="#982407"/>
+      <path d="M412,207.95H103.29L368.03,0l43.97,207.95Z" fill="#1e1e1e"/>
+    </g>
+  </svg>
+</template>
+<div style="width:100vw; height:100vh; display:flex; align-items:center; justify-content:center; background:#11100e;">
+  <x-import component-from-global-scope="MBSIntroVideo" from="./animations.jsx" direction="{{ direction }}" hint-size="100%,100%"></x-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;100%&quot;},&quot;direction&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;climb&quot;,&quot;brief&quot;],&quot;default&quot;:&quot;climb&quot;,&quot;tsType&quot;:&quot;'climb' | 'brief'&quot;,&quot;section&quot;:&quot;Direction&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { direction: this.props.direction ?? 'climb' };
+  }
+}
+</script>
+</body>
+</html>
