@@ -6,7 +6,8 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const docsDir = join(__dirname, 'docs');
-const port = parseInt(process.env.PORT || '5000', 10);
+const host = '127.0.0.1';
+const port = 5000;
 
 function build() {
   console.log('Building static site...');
@@ -65,7 +66,7 @@ const server = createServer((req, res) => {
   }
 });
 
-server.listen(port, '0.0.0.0', () => {
+server.listen(port, host, () => {
   console.log(`Serving static site on http://localhost:${port}`);
 });
 
