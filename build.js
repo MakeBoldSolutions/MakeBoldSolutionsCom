@@ -1027,8 +1027,9 @@ h1, h2, h3, h4, h5, h6 {
 
 // ─── Shared HTML Builders ────────────────────────────────────────────────────
 
-function htmlHead(title, description, slug = '') {
+function htmlHead(title, description, slug = '', options = {}) {
   const metaDesc = description || content.site.description;
+  const previewImageUrl = `${content.site.url}/logo-nav.png`;
   const canonicalUrl = slug
     ? `${content.site.url}/${slug}`
     : content.site.url;
@@ -1068,13 +1069,16 @@ function htmlHead(title, description, slug = '') {
     ],
     "knowsAbout": ["Fractional CFO", "Financial Leadership", "Tax Planning", "Corporate Controller", "Nonprofit Finance"]
   });
+  const robotsMeta = options.robots
+    ? `  <meta name="robots" content="${escapeAttr(options.robots)}">\n`
+    : '';
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
   <meta name="description" content="${escapeAttr(metaDesc)}">
-  <link rel="canonical" href="${escapeAttr(canonicalUrl)}">
+${robotsMeta}  <link rel="canonical" href="${escapeAttr(canonicalUrl)}">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -1082,11 +1086,23 @@ function htmlHead(title, description, slug = '') {
   <meta property="og:title" content="${escapeAttr(pageTitle)}">
   <meta property="og:description" content="${escapeAttr(metaDesc)}">
   <meta property="og:url" content="${escapeAttr(canonicalUrl)}">
+  <meta property="og:image" content="${escapeAttr(previewImageUrl)}">
+  <meta property="og:image:alt" content="Make Bold Solutions logo">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter/X -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="${escapeAttr(pageTitle)}">
+  <meta name="twitter:description" content="${escapeAttr(metaDesc)}">
+  <meta name="twitter:image" content="${escapeAttr(previewImageUrl)}">
 
   <!-- Schema.org LocalBusiness -->
   <script type="application/ld+json">${schemaJson}</script>
 
   <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <meta name="theme-color" content="#982407">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1792,7 +1808,7 @@ function buildPresentation() {
 
 function buildNotFound() {
   const nf = content.notFound;
-  return htmlHead('Page Not Found') + navigation('') + `
+  return htmlHead('Page Not Found', nf.description, '404.html', { robots: 'noindex, follow' }) + navigation('') + `
 
   <div class="not-found">
     <h1 class="text-4xl font-heading font-bold mb-4">${escapeHtml(nf.heading)}</h1>
