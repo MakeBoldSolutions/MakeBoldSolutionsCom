@@ -468,10 +468,16 @@
       }
     ]
   },
-  "presentation": {
+  "fractionalCfo": {
     "kicker": "Fractional Executive Leadership",
     "title": "Make Bold Solutions, LLC",
     "subtitle": "Fractional CFO and executive leadership that helps owners make bold, data-driven decisions and build transferable business value.",
+    "video": {
+      "src": "fractional-cfo-intro.mp4",
+      "label": "Meet Make Bold Solutions"
+    },
+    "sectionHeading": "Why Fractional Leadership Works",
+    "sectionIntro": "From the challenge growing businesses face to exactly how we engage — the full picture.",
     "slides": [
       {
         "kicker": "Make Bold Solutions, LLC",

@@ -31,6 +31,7 @@ const mimeTypes = {
   '.woff': 'font/woff',
   '.woff2': 'font/woff2',
   '.vcf': 'text/vcard',
+  '.mp4': 'video/mp4',
 };
 
 const server = createServer((req, res) => {

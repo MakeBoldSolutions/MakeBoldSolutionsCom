@@ -945,36 +945,20 @@ h1, h2, h3, h4, h5, h6 {
 .card-spark-link:hover { color: var(--primary); }
 .card-footer { text-align: center; font-size: 0.75rem; color: var(--muted-fg); opacity: 0.7; padding: 1.5rem 0; }
 
-/* Presentation Carousel */
-.deck-hero { text-align: center; padding: 4rem 0 2rem; }
+/* Fractional CFO — video hero + restated content */
+.deck-hero { text-align: center; padding: 2.5rem 0 1.5rem; }
 .deck-hero .kicker { color: var(--primary); font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.8rem; }
 .deck-hero h1 { font-size: 2.5rem; margin: 0.75rem 0; }
 .deck-hero p { color: var(--muted-fg); max-width: 40rem; margin: 0 auto; }
+.deck-intro { color: var(--muted-fg); max-width: 40rem; margin: 2.5rem auto 0; text-align: center; font-size: 1.0625rem; line-height: 1.7; }
 .deck { max-width: 64rem; margin: 0 auto 4rem; padding: 0 1rem; }
-.deck-viewport { position: relative; overflow: hidden; border-radius: 1.25rem; box-shadow: 0 24px 60px rgba(30,30,30,0.18); }
-.deck-track { display: flex; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
-.slide {
-  flex: 0 0 100%; min-height: 30rem; display: flex; flex-direction: column;
-  justify-content: center; padding: 4rem; gap: 1.25rem;
-  background: linear-gradient(135deg, #1E1E1E 0%, #2b1208 60%, var(--primary) 140%);
-  color: #fff; position: relative;
-}
-.slide-num { position: absolute; top: 1.5rem; right: 2rem; font-size: 0.8rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.45); font-weight: 700; }
-.slide-icon { width: 3.5rem; height: 3.5rem; border-radius: 0.875rem; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--secondary); }
-.slide-kicker { color: var(--secondary); font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; font-size: 0.8rem; }
-.slide h2 { font-size: 2.25rem; line-height: 1.15; max-width: 32rem; }
-.slide-lead { font-size: 1.25rem; font-weight: 600; color: #fff; }
-.slide p { font-size: 1.0625rem; color: rgba(255,255,255,0.82); max-width: 38rem; }
-.slide-bullets { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem; }
-.slide-bullets li { display: flex; align-items: flex-start; gap: 0.625rem; color: rgba(255,255,255,0.9); font-size: 1rem; }
-.slide-bullets svg { color: var(--secondary); flex-shrink: 0; margin-top: 0.15rem; }
-.deck-controls { display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; }
-.deck-btn { width: 3rem; height: 3rem; border-radius: 50%; border: 1px solid var(--border); background: #fff; color: var(--fg); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; }
-.deck-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
-.deck-dots { display: flex; gap: 0.5rem; }
-.deck-dot { width: 0.6rem; height: 0.6rem; border-radius: 50%; border: none; background: var(--border); cursor: pointer; padding: 0; }
-.deck-dot.active { background: var(--primary); width: 1.75rem; border-radius: 1rem; }
-@media (max-width: 640px) { .slide { padding: 2.5rem 1.5rem; min-height: 26rem; } .slide h2 { font-size: 1.6rem; } .deck-hero h1 { font-size: 1.9rem; } }
+.intro-video-frame { position: relative; overflow: hidden; border-radius: 1.25rem; box-shadow: 0 24px 60px rgba(30,30,30,0.18); background: #1E1E1E; aspect-ratio: 16 / 9; }
+.intro-video-frame video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.intro-video-caption { text-align: center; margin-top: 0.875rem; font-size: 0.8125rem; color: var(--muted-fg); font-style: italic; }
+.intro-cta { text-align: center; margin-top: 2rem; }
+.cfo-card-icon { width: 3.5rem; height: 3.5rem; margin-bottom: 1.5rem; }
+.cfo-card-kicker { color: var(--primary); font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.75rem; display: block; margin-bottom: 0.625rem; }
+@media (max-width: 640px) { .deck-hero h1 { font-size: 1.9rem; } }
 </style>
 </head>
 <body>
@@ -1017,122 +1001,95 @@ h1, h2, h3, h4, h5, h6 {
   </div>
 
   <div class="deck">
-    <div class="deck-viewport">
-      <div class="deck-track" id="deck-track">
-        <article class="slide" role="group" aria-roledescription="slide" aria-label="1 of 10">
-          <span class="slide-num">01 / 10</span>
-          <div class="slide-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
-          <span class="slide-kicker">Make Bold Solutions, LLC</span>
-          <h2>Bold Decisions. Rooted in Strategy.</h2>
-          <p class="slide-lead">Fractional CFO and executive leadership for growing businesses.</p>
-          <p>We help entrepreneurs build sustainable, transferable value by bridging the gap between day-to-day operations and financial results — engaged at the scope you need.</p>
-          
-        </article>
-        <article class="slide" role="group" aria-roledescription="slide" aria-label="2 of 10">
-          <span class="slide-num">02 / 10</span>
-          <div class="slide-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
-          <span class="slide-kicker">The Modern Business Challenge</span>
-          <h2>Growth outpaces leadership capacity.</h2>
-          
-          <p>Owners are pulled between running the business and steering it. Bookkeeping tells you what happened; it can't tell you what to do next. Most companies need senior judgment long before they can justify a full-time executive.</p>
-          <ul class="slide-bullets"><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Margins squeezed, cash hard to predict</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Decisions made on gut, not data</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>No executive bandwidth for strategy</span></li></ul>
-        </article>
-        <article class="slide" role="group" aria-roledescription="slide" aria-label="3 of 10">
-          <span class="slide-num">03 / 10</span>
-          <div class="slide-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-          <span class="slide-kicker">What is a Fractional Executive?</span>
-          <h2>C-suite expertise, sized to you.</h2>
-          
-          <p>A fractional executive delivers the strategy and discipline of a full-time leader — CFO, controller, or strategic finance — engaged part-time, for the work, without the six-figure salary.</p>
-          <ul class="slide-bullets"><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Senior expertise, part-time commitment</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Engaged for impact, not the title</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Scales up and down as you grow</span></li></ul>
-        </article>
-        <article class="slide" role="group" aria-roledescription="slide" aria-label="4 of 10">
-          <span class="slide-num">04 / 10</span>
-          <div class="slide-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg></div>
-          <span class="slide-kicker">Why &quot;Fractional&quot; is the New Standard</span>
-          <h2>The smart way to scale leadership.</h2>
-          
-          <p>Smart owners no longer wait until they can afford a full-time CFO. Fractional leadership puts seasoned financial judgment in the room today — at a fraction of the cost and risk.</p>
-          <ul class="slide-bullets"><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Lower fixed cost, faster impact</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Immediate access to seasoned judgment</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Flexibility through every growth stage</span></li></ul>
-        </article>
-        <article class="slide" role="group" aria-roledescription="slide" aria-label="5 of 10">
-          <span class="slide-num">05 / 10</span>
-          <div class="slide-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <span class="slide-kicker">The Make Bold Advantage</span>
-          <h2>Big-firm rigor. Owner-level care.</h2>
-          
-          <p>PwC-trained leadership and a 2023 Wichita Business Journal CFO of the Year — paired with hands-on partnership. You get results, not slide decks.</p>
-          <ul class="slide-bullets"><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>30+ years across PwC and Fortune 500 divisions</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>CFO, controller, and tax leadership under one roof</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Hands-on execution, not just advice</span></li></ul>
-        </article>
-        <article class="slide" role="group" aria-roledescription="slide" aria-label="6 of 10">
-          <span class="slide-num">06 / 10</span>
-          <div class="slide-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
-          <span class="slide-kicker">Solving Real Complexity</span>
-          <h2>From operations to the bottom line.</h2>
-          
-          <p>Costing, cash flow, capacity, and capital — we translate operations into financial clarity so you know which products, customers, and decisions actually create value.</p>
-          <ul class="slide-bullets"><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>True product, job, and customer profitability</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Inventory and working-capital optimization</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Capital planning for growth and exit</span></li></ul>
-        </article>
-        <article class="slide" role="group" aria-roledescription="slide" aria-label="7 of 10">
-          <span class="slide-num">07 / 10</span>
-          <div class="slide-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-          <span class="slide-kicker">Core Service Offerings</span>
-          <h2>Everything a CFO does — when you need it.</h2>
-          
-          <p>A complete fractional finance leadership stack, engaged at your scope.</p>
-          <ul class="slide-bullets"><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Fractional CFO: cash flow, budgeting &amp; forecasting</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Fractional Controller: clean books, tight close</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Strategic &amp; tax planning</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Business optimization &amp; exit readiness</span></li></ul>
-        </article>
-        <article class="slide" role="group" aria-roledescription="slide" aria-label="8 of 10">
-          <span class="slide-num">08 / 10</span>
-          <div class="slide-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-          <span class="slide-kicker">A Tech-Forward Approach</span>
-          <h2>Modern tools, real-time decisions.</h2>
-          
-          <p>We connect your systems, accounting, and dashboards so decisions run on live data — not month-old spreadsheets.</p>
-          <ul class="slide-bullets"><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Automated reporting and KPI dashboards</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Systems that talk to each other</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Data-driven decisions, made bold</span></li></ul>
-        </article>
-        <article class="slide" role="group" aria-roledescription="slide" aria-label="9 of 10">
-          <span class="slide-num">09 / 10</span>
-          <div class="slide-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <span class="slide-kicker">How to Engage</span>
-          <h2>Three simple ways to start your climb to value.</h2>
-          
-          <p>Pick the entry point that fits where you are today.</p>
-          <ul class="slide-bullets"><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Strategic Assessment — a clear read on your numbers</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Ongoing Fractional CFO — steady leadership, monthly cadence</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Project Engagement — exit prep, audit, or turnaround</span></li></ul>
-        </article>
-        <article class="slide" role="group" aria-roledescription="slide" aria-label="10 of 10">
-          <span class="slide-num">10 / 10</span>
-          <div class="slide-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
-          <span class="slide-kicker">Conclusion</span>
-          <h2>Bold Decisions. Rooted in Strategy.</h2>
-          <p class="slide-lead">Make Bold Solutions, LLC</p>
-          <p>Let's bridge your operations and your financial results with fractional executive leadership. The first step is a conversation — no obligation, no pressure.</p>
-          
-        </article>
-      </div>
+    <div class="intro-video-frame">
+      <video autoplay muted loop playsinline aria-label="Meet Make Bold Solutions">
+        <source src="fractional-cfo-intro.mp4" type="video/mp4">
+      </video>
     </div>
-    <div class="deck-controls">
-      <button class="deck-btn" id="deck-prev" aria-label="Previous slide"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></button>
-      <div class="deck-dots"><button class="deck-dot active" data-go="0" aria-label="Go to slide 1"></button><button class="deck-dot" data-go="1" aria-label="Go to slide 2"></button><button class="deck-dot" data-go="2" aria-label="Go to slide 3"></button><button class="deck-dot" data-go="3" aria-label="Go to slide 4"></button><button class="deck-dot" data-go="4" aria-label="Go to slide 5"></button><button class="deck-dot" data-go="5" aria-label="Go to slide 6"></button><button class="deck-dot" data-go="6" aria-label="Go to slide 7"></button><button class="deck-dot" data-go="7" aria-label="Go to slide 8"></button><button class="deck-dot" data-go="8" aria-label="Go to slide 9"></button><button class="deck-dot" data-go="9" aria-label="Go to slide 10"></button></div>
-      <button class="deck-btn" id="deck-next" aria-label="Next slide"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
-    </div>
-    <div style="text-align:center;margin-top:2.5rem">
+    <p class="intro-video-caption">Meet Make Bold Solutions</p>
+    <div class="intro-cta">
       <a href="contact.html" class="btn-primary">Start Your Climb to Value</a>
     </div>
+    <p class="deck-intro">We help entrepreneurs build sustainable, transferable value by bridging the gap between day-to-day operations and financial results — engaged at the scope you need.</p>
   </div>
 
-  <script>
-    (function () {
-      var track = document.getElementById('deck-track');
-      var dots = Array.prototype.slice.call(document.querySelectorAll('.deck-dot'));
-      var total = dots.length, i = 0;
-      function go(n) { i = (n + total) % total; track.style.transform = 'translateX(-' + (i * 100) + '%)'; dots.forEach(function (d, x) { d.classList.toggle('active', x === i); }); }
-      document.getElementById('deck-prev').onclick = function () { go(i - 1); };
-      document.getElementById('deck-next').onclick = function () { go(i + 1); };
-      dots.forEach(function (d) { d.onclick = function () { go(parseInt(d.dataset.go, 10)); }; });
-      document.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') go(i - 1); if (e.key === 'ArrowRight') go(i + 1); });
-    })();
-  </script>
+  <section class="section-muted section">
+    <div class="container">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-3xl font-heading font-bold mb-4">Why Fractional Leadership Works</h2>
+        <p class="text-muted">From the challenge growing businesses face to exactly how we engage — the full picture.</p>
+      </div>
+      <div class="grid grid-2-lg" style="gap:1.5rem">
+            <div class="service-card">
+              <div class="icon-box cfo-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+              <span class="cfo-card-kicker">The Modern Business Challenge</span>
+              <h3>Growth outpaces leadership capacity.</h3>
+              <p>Owners are pulled between running the business and steering it. Bookkeeping tells you what happened; it can't tell you what to do next. Most companies need senior judgment long before they can justify a full-time executive.</p>
+              <div class="features"><div class="feature">Margins squeezed, cash hard to predict</div><div class="feature">Decisions made on gut, not data</div><div class="feature">No executive bandwidth for strategy</div></div>
+            </div>
+            <div class="service-card">
+              <div class="icon-box cfo-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+              <span class="cfo-card-kicker">What is a Fractional Executive?</span>
+              <h3>C-suite expertise, sized to you.</h3>
+              <p>A fractional executive delivers the strategy and discipline of a full-time leader — CFO, controller, or strategic finance — engaged part-time, for the work, without the six-figure salary.</p>
+              <div class="features"><div class="feature">Senior expertise, part-time commitment</div><div class="feature">Engaged for impact, not the title</div><div class="feature">Scales up and down as you grow</div></div>
+            </div>
+            <div class="service-card">
+              <div class="icon-box cfo-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg></div>
+              <span class="cfo-card-kicker">Why &quot;Fractional&quot; is the New Standard</span>
+              <h3>The smart way to scale leadership.</h3>
+              <p>Smart owners no longer wait until they can afford a full-time CFO. Fractional leadership puts seasoned financial judgment in the room today — at a fraction of the cost and risk.</p>
+              <div class="features"><div class="feature">Lower fixed cost, faster impact</div><div class="feature">Immediate access to seasoned judgment</div><div class="feature">Flexibility through every growth stage</div></div>
+            </div>
+            <div class="service-card">
+              <div class="icon-box cfo-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <span class="cfo-card-kicker">The Make Bold Advantage</span>
+              <h3>Big-firm rigor. Owner-level care.</h3>
+              <p>PwC-trained leadership and a 2023 Wichita Business Journal CFO of the Year — paired with hands-on partnership. You get results, not slide decks.</p>
+              <div class="features"><div class="feature">30+ years across PwC and Fortune 500 divisions</div><div class="feature">CFO, controller, and tax leadership under one roof</div><div class="feature">Hands-on execution, not just advice</div></div>
+            </div>
+            <div class="service-card">
+              <div class="icon-box cfo-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+              <span class="cfo-card-kicker">Solving Real Complexity</span>
+              <h3>From operations to the bottom line.</h3>
+              <p>Costing, cash flow, capacity, and capital — we translate operations into financial clarity so you know which products, customers, and decisions actually create value.</p>
+              <div class="features"><div class="feature">True product, job, and customer profitability</div><div class="feature">Inventory and working-capital optimization</div><div class="feature">Capital planning for growth and exit</div></div>
+            </div>
+            <div class="service-card">
+              <div class="icon-box cfo-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+              <span class="cfo-card-kicker">Core Service Offerings</span>
+              <h3>Everything a CFO does — when you need it.</h3>
+              <p>A complete fractional finance leadership stack, engaged at your scope.</p>
+              <div class="features"><div class="feature">Fractional CFO: cash flow, budgeting &amp; forecasting</div><div class="feature">Fractional Controller: clean books, tight close</div><div class="feature">Strategic &amp; tax planning</div><div class="feature">Business optimization &amp; exit readiness</div></div>
+            </div>
+            <div class="service-card">
+              <div class="icon-box cfo-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+              <span class="cfo-card-kicker">A Tech-Forward Approach</span>
+              <h3>Modern tools, real-time decisions.</h3>
+              <p>We connect your systems, accounting, and dashboards so decisions run on live data — not month-old spreadsheets.</p>
+              <div class="features"><div class="feature">Automated reporting and KPI dashboards</div><div class="feature">Systems that talk to each other</div><div class="feature">Data-driven decisions, made bold</div></div>
+            </div>
+            <div class="service-card">
+              <div class="icon-box cfo-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+              <span class="cfo-card-kicker">How to Engage</span>
+              <h3>Three simple ways to start your climb to value.</h3>
+              <p>Pick the entry point that fits where you are today.</p>
+              <div class="features"><div class="feature">Strategic Assessment — a clear read on your numbers</div><div class="feature">Ongoing Fractional CFO — steady leadership, monthly cadence</div><div class="feature">Project Engagement — exit prep, audit, or turnaround</div></div>
+            </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-primary section">
+    <div class="container text-center">
+      <h2 class="text-3xl font-heading font-bold mb-6">Bold Decisions. Rooted in Strategy.</h2>
+      <p class="text-white-80 max-w-2xl mx-auto mb-10 text-lg">Let's bridge your operations and your financial results with fractional executive leadership. The first step is a conversation — no obligation, no pressure.</p>
+      <div class="flex flex-col sm-flex-row gap-4 justify-center">
+        <a href="contact.html" class="btn-white btn-large">Start Your Climb to Value</a>
+        <a href="services-cfo.html" class="btn-outline-white btn-large">Explore Our Services</a>
+      </div>
+    </div>
+  </section>
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">

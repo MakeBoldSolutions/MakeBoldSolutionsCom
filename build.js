@@ -25,6 +25,12 @@ copyFileSync(
   join(docsDir, 'logo-footer.png')
 );
 
+// Copy the brand intro video used as the looping hero on the fractional-cfo page
+copyFileSync(
+  join(assetsDir, 'animation', 'Make Bold Intro.mp4'),
+  join(docsDir, content.fractionalCfo.video.src)
+);
+
 // Copy favicon
 const staticDir = join(__dirname, 'static');
 copyFileSync(join(staticDir, 'favicon.png'), join(docsDir, 'favicon.png'));
@@ -992,36 +998,20 @@ h1, h2, h3, h4, h5, h6 {
 .card-spark-link:hover { color: var(--primary); }
 .card-footer { text-align: center; font-size: 0.75rem; color: var(--muted-fg); opacity: 0.7; padding: 1.5rem 0; }
 
-/* Presentation Carousel */
-.deck-hero { text-align: center; padding: 4rem 0 2rem; }
+/* Fractional CFO — video hero + restated content */
+.deck-hero { text-align: center; padding: 2.5rem 0 1.5rem; }
 .deck-hero .kicker { color: var(--primary); font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.8rem; }
 .deck-hero h1 { font-size: 2.5rem; margin: 0.75rem 0; }
 .deck-hero p { color: var(--muted-fg); max-width: 40rem; margin: 0 auto; }
+.deck-intro { color: var(--muted-fg); max-width: 40rem; margin: 2.5rem auto 0; text-align: center; font-size: 1.0625rem; line-height: 1.7; }
 .deck { max-width: 64rem; margin: 0 auto 4rem; padding: 0 1rem; }
-.deck-viewport { position: relative; overflow: hidden; border-radius: 1.25rem; box-shadow: 0 24px 60px rgba(30,30,30,0.18); }
-.deck-track { display: flex; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
-.slide {
-  flex: 0 0 100%; min-height: 30rem; display: flex; flex-direction: column;
-  justify-content: center; padding: 4rem; gap: 1.25rem;
-  background: linear-gradient(135deg, #1E1E1E 0%, #2b1208 60%, var(--primary) 140%);
-  color: #fff; position: relative;
-}
-.slide-num { position: absolute; top: 1.5rem; right: 2rem; font-size: 0.8rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.45); font-weight: 700; }
-.slide-icon { width: 3.5rem; height: 3.5rem; border-radius: 0.875rem; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--secondary); }
-.slide-kicker { color: var(--secondary); font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; font-size: 0.8rem; }
-.slide h2 { font-size: 2.25rem; line-height: 1.15; max-width: 32rem; }
-.slide-lead { font-size: 1.25rem; font-weight: 600; color: #fff; }
-.slide p { font-size: 1.0625rem; color: rgba(255,255,255,0.82); max-width: 38rem; }
-.slide-bullets { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem; }
-.slide-bullets li { display: flex; align-items: flex-start; gap: 0.625rem; color: rgba(255,255,255,0.9); font-size: 1rem; }
-.slide-bullets svg { color: var(--secondary); flex-shrink: 0; margin-top: 0.15rem; }
-.deck-controls { display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; }
-.deck-btn { width: 3rem; height: 3rem; border-radius: 50%; border: 1px solid var(--border); background: #fff; color: var(--fg); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; }
-.deck-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
-.deck-dots { display: flex; gap: 0.5rem; }
-.deck-dot { width: 0.6rem; height: 0.6rem; border-radius: 50%; border: none; background: var(--border); cursor: pointer; padding: 0; }
-.deck-dot.active { background: var(--primary); width: 1.75rem; border-radius: 1rem; }
-@media (max-width: 640px) { .slide { padding: 2.5rem 1.5rem; min-height: 26rem; } .slide h2 { font-size: 1.6rem; } .deck-hero h1 { font-size: 1.9rem; } }
+.intro-video-frame { position: relative; overflow: hidden; border-radius: 1.25rem; box-shadow: 0 24px 60px rgba(30,30,30,0.18); background: #1E1E1E; aspect-ratio: 16 / 9; }
+.intro-video-frame video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.intro-video-caption { text-align: center; margin-top: 0.875rem; font-size: 0.8125rem; color: var(--muted-fg); font-style: italic; }
+.intro-cta { text-align: center; margin-top: 2rem; }
+.cfo-card-icon { width: 3.5rem; height: 3.5rem; margin-bottom: 1.5rem; }
+.cfo-card-kicker { color: var(--primary); font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.75rem; display: block; margin-bottom: 0.625rem; }
+@media (max-width: 640px) { .deck-hero h1 { font-size: 1.9rem; } }
 `;
 
 
@@ -1747,23 +1737,23 @@ function buildContact() {
   </section>` + footer() + closePage();
 }
 
-function buildPresentation() {
-  const p = content.presentation;
-  const slides = p.slides.map((s, i) => {
-    const lead = s.lead ? `<p class="slide-lead">${escapeHtml(s.lead)}</p>` : '';
-    const bullets = s.bullets ? `<ul class="slide-bullets">${s.bullets.map(b => `<li>${icon('check-circle', 18)}<span>${escapeHtml(b)}</span></li>`).join('')}</ul>` : '';
+function buildFractionalCfo() {
+  const p = content.fractionalCfo;
+  const intro = p.slides[0];
+  const closing = p.slides[p.slides.length - 1];
+  const middleSlides = p.slides.slice(1, -1);
+
+  const cards = middleSlides.map(s => {
+    const bullets = s.bullets ? `<div class="features">${s.bullets.map(b => `<div class="feature">${escapeHtml(b)}</div>`).join('')}</div>` : '';
     return `
-        <article class="slide" role="group" aria-roledescription="slide" aria-label="${i + 1} of ${p.slides.length}">
-          <span class="slide-num">${String(i + 1).padStart(2, '0')} / ${String(p.slides.length).padStart(2, '0')}</span>
-          <div class="slide-icon">${icon(s.icon, 26)}</div>
-          <span class="slide-kicker">${escapeHtml(s.kicker)}</span>
-          <h2>${escapeHtml(s.title)}</h2>
-          ${lead}
-          <p>${escapeHtml(s.body)}</p>
-          ${bullets}
-        </article>`;
+            <div class="service-card">
+              <div class="icon-box cfo-card-icon">${icon(s.icon, 40)}</div>
+              <span class="cfo-card-kicker">${escapeHtml(s.kicker)}</span>
+              <h3>${escapeHtml(s.title)}</h3>
+              <p>${escapeHtml(s.body)}</p>
+              ${bullets}
+            </div>`;
   }).join('');
-  const dots = p.slides.map((_, i) => `<button class="deck-dot${i === 0 ? ' active' : ''}" data-go="${i}" aria-label="Go to slide ${i + 1}"></button>`).join('');
 
   return htmlHead(
     'Fractional CFO & Executive Leadership',
@@ -1778,32 +1768,39 @@ function buildPresentation() {
   </div>
 
   <div class="deck">
-    <div class="deck-viewport">
-      <div class="deck-track" id="deck-track">${slides}
-      </div>
+    <div class="intro-video-frame">
+      <video autoplay muted loop playsinline aria-label="${escapeAttr(p.video.label)}">
+        <source src="${escapeAttr(p.video.src)}" type="video/mp4">
+      </video>
     </div>
-    <div class="deck-controls">
-      <button class="deck-btn" id="deck-prev" aria-label="Previous slide">${icon('arrow-left', 22)}</button>
-      <div class="deck-dots">${dots}</div>
-      <button class="deck-btn" id="deck-next" aria-label="Next slide">${icon('arrow-right', 22)}</button>
-    </div>
-    <div style="text-align:center;margin-top:2.5rem">
+    <p class="intro-video-caption">${escapeHtml(p.video.label)}</p>
+    <div class="intro-cta">
       <a href="contact.html" class="btn-primary">Start Your Climb to Value</a>
     </div>
+    <p class="deck-intro">${escapeHtml(intro.body)}</p>
   </div>
 
-  <script>
-    (function () {
-      var track = document.getElementById('deck-track');
-      var dots = Array.prototype.slice.call(document.querySelectorAll('.deck-dot'));
-      var total = dots.length, i = 0;
-      function go(n) { i = (n + total) % total; track.style.transform = 'translateX(-' + (i * 100) + '%)'; dots.forEach(function (d, x) { d.classList.toggle('active', x === i); }); }
-      document.getElementById('deck-prev').onclick = function () { go(i - 1); };
-      document.getElementById('deck-next').onclick = function () { go(i + 1); };
-      dots.forEach(function (d) { d.onclick = function () { go(parseInt(d.dataset.go, 10)); }; });
-      document.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') go(i - 1); if (e.key === 'ArrowRight') go(i + 1); });
-    })();
-  </script>` + footer() + closePage();
+  <section class="section-muted section">
+    <div class="container">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-3xl font-heading font-bold mb-4">${escapeHtml(p.sectionHeading)}</h2>
+        <p class="text-muted">${escapeHtml(p.sectionIntro)}</p>
+      </div>
+      <div class="grid grid-2-lg" style="gap:1.5rem">${cards}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-primary section">
+    <div class="container text-center">
+      <h2 class="text-3xl font-heading font-bold mb-6">${escapeHtml(closing.title)}</h2>
+      <p class="text-white-80 max-w-2xl mx-auto mb-10 text-lg">${escapeHtml(closing.body)}</p>
+      <div class="flex flex-col sm-flex-row gap-4 justify-center">
+        <a href="contact.html" class="btn-white btn-large">Start Your Climb to Value</a>
+        <a href="services-cfo.html" class="btn-outline-white btn-large">Explore Our Services</a>
+      </div>
+    </div>
+  </section>` + footer() + closePage();
 }
 
 function buildNotFound() {
@@ -2004,7 +2001,7 @@ const pages = [
   { file: 'about.html', builder: buildAbout },
   { file: 'cfo-of-the-year.html', builder: buildCfoOfTheYear },
   { file: 'contact.html', builder: buildContact },
-  { file: 'fractional-cfo.html', builder: buildPresentation },
+  { file: 'fractional-cfo.html', builder: buildFractionalCfo },
   { file: '404.html', builder: buildNotFound },
   ...cards.map(person => ({ file: `${person.slug}/card/index.html`, builder: () => buildCard(person) })),
 ];
