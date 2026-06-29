@@ -29,3 +29,6 @@ yarn-error.log*
 # Temporary files
 *.tar.gz
 *.tmp
+
+# DevSpark - personal overrides (never commit)
+.documentation/*/commands/
