@@ -991,7 +991,39 @@ h1, h2, h3, h4, h5, h6 {
 }
 .card-spark-link:hover { color: var(--primary); }
 .card-footer { text-align: center; font-size: 0.75rem; color: var(--muted-fg); opacity: 0.7; padding: 1.5rem 0; }
+
+/* Presentation Carousel */
+.deck-hero { text-align: center; padding: 4rem 0 2rem; }
+.deck-hero .kicker { color: var(--primary); font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.8rem; }
+.deck-hero h1 { font-size: 2.5rem; margin: 0.75rem 0; }
+.deck-hero p { color: var(--muted-fg); max-width: 40rem; margin: 0 auto; }
+.deck { max-width: 64rem; margin: 0 auto 4rem; padding: 0 1rem; }
+.deck-viewport { position: relative; overflow: hidden; border-radius: 1.25rem; box-shadow: 0 24px 60px rgba(30,30,30,0.18); }
+.deck-track { display: flex; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
+.slide {
+  flex: 0 0 100%; min-height: 30rem; display: flex; flex-direction: column;
+  justify-content: center; padding: 4rem; gap: 1.25rem;
+  background: linear-gradient(135deg, #1E1E1E 0%, #2b1208 60%, var(--primary) 140%);
+  color: #fff; position: relative;
+}
+.slide-num { position: absolute; top: 1.5rem; right: 2rem; font-size: 0.8rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.45); font-weight: 700; }
+.slide-icon { width: 3.5rem; height: 3.5rem; border-radius: 0.875rem; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--secondary); }
+.slide-kicker { color: var(--secondary); font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; font-size: 0.8rem; }
+.slide h2 { font-size: 2.25rem; line-height: 1.15; max-width: 32rem; }
+.slide-lead { font-size: 1.25rem; font-weight: 600; color: #fff; }
+.slide p { font-size: 1.0625rem; color: rgba(255,255,255,0.82); max-width: 38rem; }
+.slide-bullets { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem; }
+.slide-bullets li { display: flex; align-items: flex-start; gap: 0.625rem; color: rgba(255,255,255,0.9); font-size: 1rem; }
+.slide-bullets svg { color: var(--secondary); flex-shrink: 0; margin-top: 0.15rem; }
+.deck-controls { display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; }
+.deck-btn { width: 3rem; height: 3rem; border-radius: 50%; border: 1px solid var(--border); background: #fff; color: var(--fg); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; }
+.deck-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+.deck-dots { display: flex; gap: 0.5rem; }
+.deck-dot { width: 0.6rem; height: 0.6rem; border-radius: 50%; border: none; background: var(--border); cursor: pointer; padding: 0; }
+.deck-dot.active { background: var(--primary); width: 1.75rem; border-radius: 1rem; }
+@media (max-width: 640px) { .slide { padding: 2.5rem 1.5rem; min-height: 26rem; } .slide h2 { font-size: 1.6rem; } .deck-hero h1 { font-size: 1.9rem; } }
 `;
+
 
 // ─── Shared HTML Builders ────────────────────────────────────────────────────
 
@@ -1339,15 +1371,6 @@ function buildServicesCfo() {
               <span class="text-xs font-bold uppercase tracking-wider text-primary">${escapeHtml(o.tag)}</span>
             </div>`).join('');
 
-  const steps = s.thirtyDays.steps.map((step, i) => `
-            <div style="display:flex;gap:1.5rem;align-items:flex-start${i > 0 ? ';margin-top:2rem' : ''}">
-              <div class="step-number">${i + 1}</div>
-              <div>
-                <h3 style="font-weight:700;font-size:1.125rem;margin-bottom:0.25rem">${escapeHtml(step.title)}</h3>
-                <p class="text-muted">${escapeHtml(step.description)}</p>
-              </div>
-            </div>`).join('');
-
   const segments = s.whoWeServe.segments.map(seg => `
             <div class="card">
               <h3 class="text-xl font-heading font-bold mb-4">${escapeHtml(seg.title)}</h3>
@@ -1392,17 +1415,6 @@ function buildServicesCfo() {
         <p class="text-muted">${escapeHtml(s.entryOffers.description)}</p>
       </div>
       <div class="grid grid-4" style="gap:1.5rem">${entryOffers}
-      </div>
-    </div>
-  </section>
-
-  <!-- First 30 Days -->
-  <section class="section-white section">
-    <div class="container max-w-4xl mx-auto">
-      <h2 class="text-3xl font-heading font-bold mb-12 text-center">${escapeHtml(s.thirtyDays.heading)}</h2>
-      ${steps}
-      <div class="text-center mt-12">
-        <a href="contact.html" class="btn-primary">Start the Conversation</a>
       </div>
     </div>
   </section>
@@ -1719,6 +1731,65 @@ function buildContact() {
   </section>` + footer() + closePage();
 }
 
+function buildPresentation() {
+  const p = content.presentation;
+  const slides = p.slides.map((s, i) => {
+    const lead = s.lead ? `<p class="slide-lead">${escapeHtml(s.lead)}</p>` : '';
+    const bullets = s.bullets ? `<ul class="slide-bullets">${s.bullets.map(b => `<li>${icon('check-circle', 18)}<span>${escapeHtml(b)}</span></li>`).join('')}</ul>` : '';
+    return `
+        <article class="slide" role="group" aria-roledescription="slide" aria-label="${i + 1} of ${p.slides.length}">
+          <span class="slide-num">${String(i + 1).padStart(2, '0')} / ${String(p.slides.length).padStart(2, '0')}</span>
+          <div class="slide-icon">${icon(s.icon, 26)}</div>
+          <span class="slide-kicker">${escapeHtml(s.kicker)}</span>
+          <h2>${escapeHtml(s.title)}</h2>
+          ${lead}
+          <p>${escapeHtml(s.body)}</p>
+          ${bullets}
+        </article>`;
+  }).join('');
+  const dots = p.slides.map((_, i) => `<button class="deck-dot${i === 0 ? ' active' : ''}" data-go="${i}" aria-label="Go to slide ${i + 1}"></button>`).join('');
+
+  return htmlHead(
+    'Fractional CFO & Executive Leadership',
+    'Fractional CFO and executive leadership from Make Bold Solutions — data-driven financial strategy that bridges operations and the bottom line for growing businesses.',
+    'fractional-cfo.html'
+  ) + navigation('fractional-cfo.html') + `
+
+  <div class="deck-hero container">
+    <span class="kicker">${escapeHtml(p.kicker)}</span>
+    <h1>${escapeHtml(p.title)}</h1>
+    <p>${escapeHtml(p.subtitle)}</p>
+  </div>
+
+  <div class="deck">
+    <div class="deck-viewport">
+      <div class="deck-track" id="deck-track">${slides}
+      </div>
+    </div>
+    <div class="deck-controls">
+      <button class="deck-btn" id="deck-prev" aria-label="Previous slide">${icon('arrow-left', 22)}</button>
+      <div class="deck-dots">${dots}</div>
+      <button class="deck-btn" id="deck-next" aria-label="Next slide">${icon('arrow-right', 22)}</button>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem">
+      <a href="contact.html" class="btn-primary">Start Your Climb to Value</a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var track = document.getElementById('deck-track');
+      var dots = Array.prototype.slice.call(document.querySelectorAll('.deck-dot'));
+      var total = dots.length, i = 0;
+      function go(n) { i = (n + total) % total; track.style.transform = 'translateX(-' + (i * 100) + '%)'; dots.forEach(function (d, x) { d.classList.toggle('active', x === i); }); }
+      document.getElementById('deck-prev').onclick = function () { go(i - 1); };
+      document.getElementById('deck-next').onclick = function () { go(i + 1); };
+      dots.forEach(function (d) { d.onclick = function () { go(parseInt(d.dataset.go, 10)); }; });
+      document.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') go(i - 1); if (e.key === 'ArrowRight') go(i + 1); });
+    })();
+  </script>` + footer() + closePage();
+}
+
 function buildNotFound() {
   const nf = content.notFound;
   return htmlHead('Page Not Found') + navigation('') + `
@@ -1917,6 +1988,7 @@ const pages = [
   { file: 'about.html', builder: buildAbout },
   { file: 'cfo-of-the-year.html', builder: buildCfoOfTheYear },
   { file: 'contact.html', builder: buildContact },
+  { file: 'fractional-cfo.html', builder: buildPresentation },
   { file: '404.html', builder: buildNotFound },
   ...cards.map(person => ({ file: `${person.slug}/card/index.html`, builder: () => buildCard(person) })),
 ];

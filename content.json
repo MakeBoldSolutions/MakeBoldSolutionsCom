@@ -16,6 +16,7 @@
     "links": [
       { "href": "index.html", "label": "Home" },
       { "href": "services-cfo.html", "label": "Services" },
+      { "href": "fractional-cfo.html", "label": "Fractional CFO" },
       { "href": "about.html", "label": "Our Firm" },
       { "href": "contact.html", "label": "Contact", "primary": true }
     ]
@@ -282,23 +283,6 @@
         }
       ]
     },
-    "thirtyDays": {
-      "heading": "What Your First 30 Days Look Like",
-      "steps": [
-        {
-          "title": "Discovery Conversation",
-          "description": "We start with a no-obligation conversation to understand your business, your challenges, and where you need help most. No jargon, no pressure."
-        },
-        {
-          "title": "Financial Assessment",
-          "description": "We review your books, cash flow, and financial processes to identify the highest-impact areas for improvement and build a clear action plan."
-        },
-        {
-          "title": "Hands-On Execution",
-          "description": "We get to work — cleaning up books, building budgets, setting up reports, or whatever your business needs most. You'll see results, not slide decks."
-        }
-      ]
-    },
     "whoWeServe": {
       "heading": "Who We Serve",
       "segments": [
@@ -481,6 +465,116 @@
         "description": "PwC consulting alumnus. Bridges financial strategy and the technology that supports it — from systems evaluation to data-driven decision-making.",
         "href": "https://www.linkedin.com/in/markhazleton/",
         "label": "Connect with Mark"
+      }
+    ]
+  },
+  "presentation": {
+    "kicker": "Fractional Executive Leadership",
+    "title": "Make Bold Solutions, LLC",
+    "subtitle": "Fractional CFO and executive leadership that helps owners make bold, data-driven decisions and build transferable business value.",
+    "slides": [
+      {
+        "kicker": "Make Bold Solutions, LLC",
+        "title": "Bold Decisions. Rooted in Strategy.",
+        "lead": "Fractional CFO and executive leadership for growing businesses.",
+        "body": "We help entrepreneurs build sustainable, transferable value by bridging the gap between day-to-day operations and financial results — engaged at the scope you need.",
+        "icon": "award"
+      },
+      {
+        "kicker": "The Modern Business Challenge",
+        "title": "Growth outpaces leadership capacity.",
+        "body": "Owners are pulled between running the business and steering it. Bookkeeping tells you what happened; it can't tell you what to do next. Most companies need senior judgment long before they can justify a full-time executive.",
+        "icon": "trending-up",
+        "bullets": [
+          "Margins squeezed, cash hard to predict",
+          "Decisions made on gut, not data",
+          "No executive bandwidth for strategy"
+        ]
+      },
+      {
+        "kicker": "What is a Fractional Executive?",
+        "title": "C-suite expertise, sized to you.",
+        "body": "A fractional executive delivers the strategy and discipline of a full-time leader — CFO, controller, or strategic finance — engaged part-time, for the work, without the six-figure salary.",
+        "icon": "briefcase",
+        "bullets": [
+          "Senior expertise, part-time commitment",
+          "Engaged for impact, not the title",
+          "Scales up and down as you grow"
+        ]
+      },
+      {
+        "kicker": "Why \"Fractional\" is the New Standard",
+        "title": "The smart way to scale leadership.",
+        "body": "Smart owners no longer wait until they can afford a full-time CFO. Fractional leadership puts seasoned financial judgment in the room today — at a fraction of the cost and risk.",
+        "icon": "bar-chart",
+        "bullets": [
+          "Lower fixed cost, faster impact",
+          "Immediate access to seasoned judgment",
+          "Flexibility through every growth stage"
+        ]
+      },
+      {
+        "kicker": "The Make Bold Advantage",
+        "title": "Big-firm rigor. Owner-level care.",
+        "body": "PwC-trained leadership and a 2023 Wichita Business Journal CFO of the Year — paired with hands-on partnership. You get results, not slide decks.",
+        "icon": "check-circle",
+        "bullets": [
+          "30+ years across PwC and Fortune 500 divisions",
+          "CFO, controller, and tax leadership under one roof",
+          "Hands-on execution, not just advice"
+        ]
+      },
+      {
+        "kicker": "Solving Real Complexity",
+        "title": "From operations to the bottom line.",
+        "body": "Costing, cash flow, capacity, and capital — we translate operations into financial clarity so you know which products, customers, and decisions actually create value.",
+        "icon": "trending-up",
+        "bullets": [
+          "True product, job, and customer profitability",
+          "Inventory and working-capital optimization",
+          "Capital planning for growth and exit"
+        ]
+      },
+      {
+        "kicker": "Core Service Offerings",
+        "title": "Everything a CFO does — when you need it.",
+        "body": "A complete fractional finance leadership stack, engaged at your scope.",
+        "icon": "briefcase",
+        "bullets": [
+          "Fractional CFO: cash flow, budgeting & forecasting",
+          "Fractional Controller: clean books, tight close",
+          "Strategic & tax planning",
+          "Business optimization & exit readiness"
+        ]
+      },
+      {
+        "kicker": "A Tech-Forward Approach",
+        "title": "Modern tools, real-time decisions.",
+        "body": "We connect your systems, accounting, and dashboards so decisions run on live data — not month-old spreadsheets.",
+        "icon": "zap",
+        "bullets": [
+          "Automated reporting and KPI dashboards",
+          "Systems that talk to each other",
+          "Data-driven decisions, made bold"
+        ]
+      },
+      {
+        "kicker": "How to Engage",
+        "title": "Three simple ways to start your climb to value.",
+        "body": "Pick the entry point that fits where you are today.",
+        "icon": "users",
+        "bullets": [
+          "Strategic Assessment — a clear read on your numbers",
+          "Ongoing Fractional CFO — steady leadership, monthly cadence",
+          "Project Engagement — exit prep, audit, or turnaround"
+        ]
+      },
+      {
+        "kicker": "Conclusion",
+        "title": "Bold Decisions. Rooted in Strategy.",
+        "lead": "Make Bold Solutions, LLC",
+        "body": "Let's bridge your operations and your financial results with fractional executive leadership. The first step is a conversation — no obligation, no pressure.",
+        "icon": "award"
       }
     ]
   },
