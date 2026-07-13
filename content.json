@@ -15,8 +15,16 @@
   "nav": {
     "links": [
       { "href": "index.html", "label": "Home" },
-      { "href": "services-cfo.html", "label": "Services" },
-      { "href": "fractional-cfo.html", "label": "Fractional CFO" },
+      {
+        "href": "services-cfo.html",
+        "label": "Services",
+        "children": [
+          { "href": "fractional-cfo.html", "label": "Fractional CFO" },
+          { "href": "projects.html", "label": "Projects" },
+          { "href": "interim-cfo.html", "label": "Interim CFO" },
+          { "href": "startup-middle-market.html", "label": "Start-up & Middle Market Support" }
+        ]
+      },
       { "href": "about.html", "label": "Our Firm" },
       { "href": "contact.html", "label": "Contact", "primary": true }
     ]
@@ -24,12 +32,10 @@
   "footer": {
     "tagline": "Strategic financial leadership for small and midsize businesses, sole proprietors, and nonprofits.",
     "services": [
-      { "label": "Fractional CFO", "href": "services-cfo.html" },
-      { "label": "Fractional Corporate Controller", "href": "services-cfo.html" },
-      { "label": "Strategic Tax Planning", "href": "services-cfo.html" },
-      { "label": "Tax Preparation", "href": "services-cfo.html" },
-      { "label": "Business Optimization", "href": "services-cfo.html" },
-      { "label": "Nonprofit Governance", "href": "services-cfo.html" }
+      { "label": "Fractional CFO", "href": "fractional-cfo.html" },
+      { "label": "Projects", "href": "projects.html" },
+      { "label": "Interim CFO", "href": "interim-cfo.html" },
+      { "label": "Start-up & Middle Market Support", "href": "startup-middle-market.html" }
     ],
     "company": [
       { "label": "About Us", "href": "about.html" },
@@ -68,7 +74,7 @@
         {
           "title": "Fractional CFO",
           "description": "Cash flow clarity, budgeting and forecasting you can act on, audit preparation, and strategic financial planning — senior-level leadership engaged at the scope and pace your business requires.",
-          "href": "services-cfo.html",
+          "href": "fractional-cfo.html",
           "icon": "bar-chart",
           "features": [
             "Cash Flow Management",
@@ -78,63 +84,39 @@
           ]
         },
         {
-          "title": "Business Optimization",
-          "description": "From bookkeeping cleanup to building a close rhythm to getting your financial systems right — we help you build a foundation for confident decision-making.",
-          "href": "services-cfo.html",
+          "title": "Projects",
+          "description": "Sometimes you need a second set of hands to bring your vision to fruition — or the routine doesn't leave time for process improvement. We take on defined engagements with clear deliverables and an end date.",
+          "href": "projects.html",
           "icon": "briefcase",
           "features": [
-            "Books Cleanup & Close Rhythm",
             "Process Improvement",
-            "ERP & Systems Support",
-            "Growth Planning"
+            "System Implementations",
+            "Audit Preparation",
+            "Exit Readiness"
           ]
         },
         {
-          "title": "Nonprofit Governance",
-          "description": "Board treasurer services, financial governance, and compliance support — the same rigor and commitment we bring to every client, applied to organizations doing important community work.",
-          "href": "services-cfo.html",
-          "icon": "hand-heart",
+          "title": "Interim CFO",
+          "description": "When a finance leader departs, the work doesn't wait. We step in to keep the close on schedule, the team led, and the numbers trusted — while you take the time to hire right.",
+          "href": "interim-cfo.html",
+          "icon": "users",
           "features": [
-            "Board Treasurer Services",
-            "Financial Governance",
-            "Grant & Fund Management",
-            "Compliance Support"
-          ]
-        },
-        {
-          "title": "Fractional Corporate Controller",
-          "description": "Full-cycle accounting oversight, month-end close, reporting, and financial controls — the discipline and rigor of a dedicated controller, scaled to your engagement.",
-          "href": "services-cfo.html",
-          "icon": "briefcase",
-          "features": [
+            "Leadership Continuity",
             "Month-End Close Management",
-            "Financial Controls & Compliance",
-            "Accounting Oversight",
-            "Internal Reporting"
+            "Team Leadership",
+            "Transition & Hiring Support"
           ]
         },
         {
-          "title": "Strategic Tax Planning",
-          "description": "Proactive tax strategy to minimize your liability and position your business for long-term financial health — not just at filing season.",
-          "href": "services-cfo.html",
+          "title": "Start-up & Middle Market Support",
+          "description": "From first financial foundation to scaling for growth — controller services, tax planning and preparation, and the systems and reporting that keep owners, investors, and lenders confident.",
+          "href": "startup-middle-market.html",
           "icon": "trending-up",
           "features": [
-            "Tax Strategy & Planning",
-            "Entity Structure Optimization",
-            "Deduction & Credit Maximization",
-            "Year-Round Tax Advisory"
-          ]
-        },
-        {
-          "title": "Tax Preparation",
-          "description": "Accurate, thorough tax preparation for businesses, sole proprietors, and nonprofits — filed correctly and on time.",
-          "href": "services-cfo.html",
-          "icon": "book",
-          "features": [
-            "Business Tax Returns",
-            "Sole Proprietor Filing",
-            "Nonprofit Tax Compliance",
-            "Multi-State Filing"
+            "Accounting Foundation & Systems",
+            "Controller Services",
+            "Tax Planning & Preparation",
+            "Investor & Lender Reporting"
           ]
         }
       ]
@@ -229,9 +211,79 @@
   "servicesCfo": {
     "header": {
       "label": "Services",
-      "heading": "Fractional CFO & Financial Leadership",
-      "description": "Strategic financial guidance for small businesses, sole proprietors, and nonprofits — on your terms and within your budget."
+      "heading": "Financial Leadership, Four Ways to Engage",
+      "description": "Fractional CFO, project engagements, interim leadership, and start-up & middle market support — strategic financial guidance on your terms and within your budget."
     },
+    "offerings": [
+      {
+        "id": "fractional-cfo",
+        "kicker": "Ongoing Leadership",
+        "title": "Fractional CFO",
+        "icon": "bar-chart",
+        "paragraphs": [
+          "Senior-level financial leadership on a steady, monthly cadence — without the six-figure salary. We manage cash flow, build budgets and forecasts you can act on, and bring seasoned judgment to every major decision.",
+          "Engaged at the scope your business requires, scaling up and down as you grow."
+        ],
+        "features": [
+          "Cash Flow Forecasting & Management",
+          "Budgeting, Planning & Financial Analysis",
+          "Monthly Close Rhythm & Reporting",
+          "Strategic Advisory & Growth Planning"
+        ],
+        "cta": { "label": "Explore Fractional CFO in Depth", "href": "fractional-cfo.html" }
+      },
+      {
+        "id": "projects",
+        "kicker": "Defined Engagements",
+        "title": "Projects",
+        "icon": "briefcase",
+        "paragraphs": [
+          "Sometimes you need a second set of hands to bring your vision to fruition. Sometimes the routine doesn't leave you enough time for process improvement. And sometimes another CFO alongside yours helps you move twice as fast.",
+          "We take on focused engagements — process redesign, system implementations, audit preparation, exit readiness — with clear deliverables and an end date."
+        ],
+        "features": [
+          "Process Improvement & Redesign",
+          "ERP & Financial Systems Implementation",
+          "Audit Preparation & Compliance",
+          "Exit Readiness & Transaction Support"
+        ],
+        "cta": { "label": "Explore Project Engagements", "href": "projects.html" }
+      },
+      {
+        "id": "interim-cfo",
+        "kicker": "Leadership Continuity",
+        "title": "Interim CFO",
+        "icon": "users",
+        "paragraphs": [
+          "When a finance leader departs, the work doesn't wait. We step in quickly to keep the close on schedule, the team led, and the numbers trusted — so the business doesn't miss a beat.",
+          "And when you're ready to hire, we help you define the role, evaluate candidates, and hand off cleanly."
+        ],
+        "features": [
+          "Immediate Financial Leadership",
+          "Month-End Close & Reporting Continuity",
+          "Finance Team Leadership & Mentoring",
+          "Transition Planning & Hiring Support"
+        ],
+        "cta": { "label": "Explore Interim CFO Services", "href": "interim-cfo.html" }
+      },
+      {
+        "id": "startup-middle-market",
+        "kicker": "Foundation to Scale",
+        "title": "Start-up & Middle Market Company Support",
+        "icon": "trending-up",
+        "paragraphs": [
+          "Whether you're standing up your first financial foundation or scaling past what your current systems can handle, we bring the structure that keeps owners, investors, and lenders confident.",
+          "Controller services, tax planning and preparation, and financial systems that grow with you — big-firm rigor, sized to where you are today."
+        ],
+        "features": [
+          "Accounting Foundation & Systems Setup",
+          "Fractional Corporate Controller Services",
+          "Strategic Tax Planning & Preparation",
+          "Investor & Lender-Ready Reporting"
+        ],
+        "cta": { "label": "Explore Start-up & Middle Market Support", "href": "startup-middle-market.html" }
+      }
+    ],
     "main": {
       "heading": "The Financial Partner You've Been Looking For",
       "paragraphs": [
@@ -301,6 +353,261 @@
       ]
     }
   },
+  "servicePages": [
+    {
+      "slug": "projects",
+      "seoTitle": "CFO Project Engagements | Wichita & Kansas",
+      "seoDescription": "Project-based CFO engagements in Wichita, Kansas — process improvement, system implementations, audit preparation, and exit readiness with clear deliverables and an end date.",
+      "kicker": "Defined Engagements",
+      "heading": "CFO Project Engagements",
+      "subtitle": "A second set of hands to bring your vision to fruition — clear scope, clear deliverables, and an end date.",
+      "intro": {
+        "heading": "Sometimes You Need Another CFO in the Room",
+        "paragraphs": [
+          "Sometimes you need a second set of hands to bring your vision to fruition. Sometimes the routine doesn't leave you enough time for process improvement. And sometimes another CFO alongside yours helps you move twice as fast.",
+          "That's what a project engagement is for. We take on a defined piece of work — a process redesign, a system implementation, an audit, an exit — and drive it to done, working alongside you and your team. No open-ended retainers: scope, deliverables, and an end date, agreed up front."
+        ]
+      },
+      "included": {
+        "heading": "What's Included",
+        "items": [
+          {
+            "title": "Process Improvement & Redesign",
+            "description": "Close cycles, approval workflows, and reporting processes — streamlined, documented, and built to run without heroics."
+          },
+          {
+            "title": "ERP & Financial Systems Implementation",
+            "description": "Selection, implementation, and adoption of accounting and reporting systems — led by someone who speaks both finance and technology."
+          },
+          {
+            "title": "Audit & Due Diligence Preparation",
+            "description": "Schedules, reconciliations, and documentation ready before the auditors or buyers arrive — so the process is faster and cheaper."
+          },
+          {
+            "title": "Exit Readiness & Transaction Support",
+            "description": "Clean financials, defensible add-backs, and a data room that holds up — building transferable value before you go to market."
+          }
+        ]
+      },
+      "whenYouNeedIt": {
+        "heading": "When You Need a Project Engagement",
+        "description": "Project engagements fit moments when the work is real, the deadline is real, and your team's bandwidth isn't.",
+        "triggers": [
+          {
+            "title": "A Vision That Keeps Waiting",
+            "description": "There's an initiative you know would move the business forward, but it never makes it to the top of the pile.",
+            "icon": "trending-up"
+          },
+          {
+            "title": "No Bandwidth for Improvement",
+            "description": "Your team keeps the trains running, but the routine leaves no time to make the processes themselves better.",
+            "icon": "zap"
+          },
+          {
+            "title": "A Milestone on the Calendar",
+            "description": "An audit, a system go-live, a financing round, or a sale — a deadline that demands focused senior attention.",
+            "icon": "check-circle"
+          },
+          {
+            "title": "Your CFO Needs a Peer",
+            "description": "Another CFO working alongside yours divides the load without diluting the standard — and helps you move twice as fast.",
+            "icon": "users"
+          }
+        ]
+      },
+      "engagement": {
+        "heading": "How a Project Engagement Works",
+        "steps": [
+          {
+            "title": "Scope It",
+            "description": "We start with a conversation and agree on deliverables, timeline, and price before any work begins."
+          },
+          {
+            "title": "Do the Work",
+            "description": "We execute alongside your team — hands-on, senior-level, with progress you can see week to week."
+          },
+          {
+            "title": "Hand It Off",
+            "description": "We finish with documentation and knowledge transfer, so the value stays after the engagement ends."
+          }
+        ]
+      },
+      "cta": {
+        "heading": "Have a Project in Mind?",
+        "description": "Tell us what you're trying to get done. If we're not the right fit, we'll say so — no obligation, no pressure."
+      }
+    },
+    {
+      "slug": "interim-cfo",
+      "seoTitle": "Interim CFO Services | Wichita & Kansas",
+      "seoDescription": "Interim CFO services in Wichita, Kansas — immediate financial leadership during a CFO departure, transition, or growth surge. Keep the close on schedule and the numbers trusted while you hire right.",
+      "kicker": "Leadership Continuity",
+      "heading": "Interim CFO",
+      "subtitle": "When a finance leader departs, the work doesn't wait. We step in fast, keep the numbers trusted, and hand off cleanly when you've hired right.",
+      "intro": {
+        "heading": "Leadership Without a Gap",
+        "paragraphs": [
+          "A CFO departure — sudden or planned — leaves more than an empty office. The close still has to happen, the team still needs direction, and the board and the bank still expect answers.",
+          "We step in quickly as your interim CFO: stabilizing operations, keeping reporting on schedule, and leading the finance team — so the business doesn't miss a beat while you take the time to hire the right permanent leader. And when the search is over, we help you evaluate candidates and hand off cleanly."
+        ]
+      },
+      "included": {
+        "heading": "What's Included",
+        "items": [
+          {
+            "title": "Immediate Financial Leadership",
+            "description": "Day-one ownership of the finance function — decisions get made, questions get answered, work keeps moving."
+          },
+          {
+            "title": "Close & Reporting Continuity",
+            "description": "Month-end close, board packages, and lender reporting stay on schedule and stay trusted."
+          },
+          {
+            "title": "Team Leadership & Mentoring",
+            "description": "Your finance staff get direction, development, and a steady hand — not just a placeholder."
+          },
+          {
+            "title": "Board, Bank & Investor Communication",
+            "description": "Confident, consistent communication with the people who watch your numbers most closely."
+          },
+          {
+            "title": "Transition & Hiring Support",
+            "description": "Role definition, candidate evaluation, and structured onboarding for your next CFO — then a clean handoff."
+          }
+        ]
+      },
+      "whenYouNeedIt": {
+        "heading": "When You Need an Interim CFO",
+        "description": "Interim leadership fits the moments when the finance function can't wait for a search to finish.",
+        "triggers": [
+          {
+            "title": "A Sudden Departure",
+            "description": "Your CFO resigned or was let go, and there's no succession plan on the shelf.",
+            "icon": "zap"
+          },
+          {
+            "title": "A Planned Transition",
+            "description": "Retirement or restructuring is coming — you want continuity while you run a proper search.",
+            "icon": "users"
+          },
+          {
+            "title": "Growth Outpacing Leadership",
+            "description": "The business scaled past the current team's experience, and the numbers are showing the strain.",
+            "icon": "trending-up"
+          },
+          {
+            "title": "A Demanding Season",
+            "description": "An audit, acquisition, or financing is landing right in the middle of the leadership gap.",
+            "icon": "check-circle"
+          }
+        ]
+      },
+      "engagement": {
+        "heading": "How an Interim Engagement Works",
+        "steps": [
+          {
+            "title": "Stabilize",
+            "description": "A rapid assessment of where things stand — cash, close, commitments — and immediate ownership of what can't wait."
+          },
+          {
+            "title": "Lead",
+            "description": "Steady, senior leadership at a consistent cadence: the close runs, the team grows, the board stays informed."
+          },
+          {
+            "title": "Transition",
+            "description": "We help define the permanent role, evaluate candidates, onboard your hire, and hand off with documentation — not dependence."
+          }
+        ]
+      },
+      "cta": {
+        "heading": "Facing a Leadership Gap?",
+        "description": "The sooner we talk, the smoother the transition. Reach out for a confidential conversation — no obligation, no pressure."
+      }
+    },
+    {
+      "slug": "startup-middle-market",
+      "seoTitle": "Start-up & Middle Market CFO Support | Wichita & Kansas",
+      "seoDescription": "CFO support for start-ups and middle market companies in Wichita, Kansas — accounting foundations, controller services, tax planning and preparation, and investor- and lender-ready reporting.",
+      "kicker": "Foundation to Scale",
+      "heading": "Start-up & Middle Market Company Support",
+      "subtitle": "From your first financial foundation to systems that scale — big-firm rigor, sized to where you are today.",
+      "intro": {
+        "heading": "Built for Where You Are — and Where You're Going",
+        "paragraphs": [
+          "Start-ups and middle market companies share a challenge: the finance function has to keep earning its keep at every stage. What worked at launch strains at $2 million; what worked at $2 million breaks at $20 million.",
+          "We meet you where you are. For start-ups, that means standing up a real financial foundation — clean books, the right systems, and reporting that investors and lenders take seriously. For middle market companies, it means the controller discipline, tax strategy, and working-capital rigor that scaling demands."
+        ]
+      },
+      "included": {
+        "heading": "What's Included",
+        "items": [
+          {
+            "title": "Accounting Foundation & Systems Setup",
+            "description": "Chart of accounts, close process, and systems chosen for the size you're becoming — not just the size you are."
+          },
+          {
+            "title": "Fractional Corporate Controller Services",
+            "description": "Month-end close, financial controls, and accounting oversight — the discipline of a dedicated controller, scaled to your engagement."
+          },
+          {
+            "title": "Strategic Tax Planning & Preparation",
+            "description": "Proactive, year-round tax strategy and accurate preparation — entity structure, deductions, and multi-state complexity handled."
+          },
+          {
+            "title": "Investor & Lender-Ready Reporting",
+            "description": "Financial statements and KPI reporting that hold up in front of a bank, a board, or a buyer."
+          }
+        ]
+      },
+      "whenYouNeedIt": {
+        "heading": "When You Need This Support",
+        "description": "The signals show up in the day-to-day long before they show up in the financial statements.",
+        "triggers": [
+          {
+            "title": "You've Outgrown the Spreadsheet",
+            "description": "QuickBooks-and-spreadsheets got you here, but decisions now need numbers you can trust.",
+            "icon": "book"
+          },
+          {
+            "title": "Capital Is on the Horizon",
+            "description": "A raise, a loan, or a line of credit — and your financials need to stand up to scrutiny.",
+            "icon": "trending-up"
+          },
+          {
+            "title": "Your First Audit Is Coming",
+            "description": "A lender, investor, or grant requires audited statements, and the books aren't ready.",
+            "icon": "check-circle"
+          },
+          {
+            "title": "Scale Is Straining the Systems",
+            "description": "Growth is exposing cracks: slow closes, surprise cash crunches, and reports nobody trusts.",
+            "icon": "zap"
+          }
+        ]
+      },
+      "engagement": {
+        "heading": "How We Work Together",
+        "steps": [
+          {
+            "title": "Assess",
+            "description": "We start with a clear-eyed read of your finance function — what's solid, what's strained, what's missing."
+          },
+          {
+            "title": "Build",
+            "description": "We put the foundation in place: books, systems, controls, and a reporting rhythm that fits your stage."
+          },
+          {
+            "title": "Scale",
+            "description": "As you grow, the engagement grows with you — from foundation work to controller services to full fractional CFO leadership."
+          }
+        ]
+      },
+      "cta": {
+        "heading": "Ready to Build a Finance Function That Scales?",
+        "description": "Wherever you are on the climb, the first step is a conversation — no obligation, no pressure."
+      }
+    }
+  ],
   "about": {
     "hero": {
       "label": "About the Firm",

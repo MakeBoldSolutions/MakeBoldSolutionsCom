@@ -44,9 +44,17 @@
         </a>
         <div class="nav-links">
             <a href="index.html" class="nav-link active">Home</a>
-            <a href="services-cfo.html" class="nav-link">Services</a>
-            <a href="fractional-cfo.html" class="nav-link">Fractional CFO</a>
+            <div class="nav-item">
+              <a href="services-cfo.html" class="nav-link">Services <span class="nav-caret"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></a>
+              <div class="nav-dropdown">
+                <a href="fractional-cfo.html" class="nav-dropdown-link">Fractional CFO</a>
+                <a href="projects.html" class="nav-dropdown-link">Projects</a>
+                <a href="interim-cfo.html" class="nav-dropdown-link">Interim CFO</a>
+                <a href="startup-middle-market.html" class="nav-dropdown-link">Start-up &amp; Middle Market Support</a>
+              </div>
+            </div>
             <a href="about.html" class="nav-link">Our Firm</a>
+            <a href="contact.html" class="nav-cta">Get in Touch</a>
         </div>
         <button class="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav-panel" onclick="
           var nav = document.getElementById('site-nav');
@@ -61,7 +69,10 @@
       <div class="container">
         <a href="index.html" class="mobile-nav-link active">Home <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
               <a href="services-cfo.html" class="mobile-nav-link">Services <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-              <a href="fractional-cfo.html" class="mobile-nav-link">Fractional CFO <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+              <a href="fractional-cfo.html" class="mobile-nav-sublink">Fractional CFO</a>
+              <a href="projects.html" class="mobile-nav-sublink">Projects</a>
+              <a href="interim-cfo.html" class="mobile-nav-sublink">Interim CFO</a>
+              <a href="startup-middle-market.html" class="mobile-nav-sublink">Start-up &amp; Middle Market Support</a>
               <a href="about.html" class="mobile-nav-link">Our Firm <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
         <a href="contact.html" class="mobile-nav-cta">Get in Touch &rarr;</a>
       </div>
@@ -126,7 +137,7 @@
         <h2 class="text-3xl font-heading font-bold mb-4">How We Help</h2>
         <p class="text-muted">Whether you need cash flow clarity, a budget you can actually use, or someone to sit on your nonprofit board — we bring the expertise and do the work alongside you.</p>
       </div>
-      <div class="grid grid-3" style="gap:2rem">
+      <div class="grid grid-2" style="gap:2rem">
           <div class="service-card">
             <div class="icon-box" style="width:3.5rem;height:3.5rem;margin-bottom:1.5rem"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg></div>
             <h3>Fractional CFO</h3>
@@ -137,67 +148,43 @@
               <div class="feature">Audit Preparation</div>
               <div class="feature">Financial Reporting</div>
             </div>
-            <a href="services-cfo.html" class="card-link">Explore Service &rarr;</a>
+            <a href="fractional-cfo.html" class="card-link">Explore Service &rarr;</a>
           </div>
           <div class="service-card">
             <div class="icon-box" style="width:3.5rem;height:3.5rem;margin-bottom:1.5rem"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-            <h3>Business Optimization</h3>
-            <p>From bookkeeping cleanup to building a close rhythm to getting your financial systems right — we help you build a foundation for confident decision-making.</p>
+            <h3>Projects</h3>
+            <p>Sometimes you need a second set of hands to bring your vision to fruition — or the routine doesn't leave time for process improvement. We take on defined engagements with clear deliverables and an end date.</p>
             <div class="features">
-              <div class="feature">Books Cleanup &amp; Close Rhythm</div>
               <div class="feature">Process Improvement</div>
-              <div class="feature">ERP &amp; Systems Support</div>
-              <div class="feature">Growth Planning</div>
+              <div class="feature">System Implementations</div>
+              <div class="feature">Audit Preparation</div>
+              <div class="feature">Exit Readiness</div>
             </div>
-            <a href="services-cfo.html" class="card-link">Explore Service &rarr;</a>
+            <a href="projects.html" class="card-link">Explore Service &rarr;</a>
           </div>
           <div class="service-card">
-            <div class="icon-box" style="width:3.5rem;height:3.5rem;margin-bottom:1.5rem"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 14h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16"/><path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"/><path d="m2 15 6 6"/><path d="M19.5 8.5c.7-.7 1.5-1.6 1.5-2.7A2.73 2.73 0 0 0 16 4a2.78 2.78 0 0 0-5 1.8c0 1.2.8 2 1.5 2.8L16 12Z"/></svg></div>
-            <h3>Nonprofit Governance</h3>
-            <p>Board treasurer services, financial governance, and compliance support — the same rigor and commitment we bring to every client, applied to organizations doing important community work.</p>
+            <div class="icon-box" style="width:3.5rem;height:3.5rem;margin-bottom:1.5rem"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h3>Interim CFO</h3>
+            <p>When a finance leader departs, the work doesn't wait. We step in to keep the close on schedule, the team led, and the numbers trusted — while you take the time to hire right.</p>
             <div class="features">
-              <div class="feature">Board Treasurer Services</div>
-              <div class="feature">Financial Governance</div>
-              <div class="feature">Grant &amp; Fund Management</div>
-              <div class="feature">Compliance Support</div>
-            </div>
-            <a href="services-cfo.html" class="card-link">Explore Service &rarr;</a>
-          </div>
-          <div class="service-card">
-            <div class="icon-box" style="width:3.5rem;height:3.5rem;margin-bottom:1.5rem"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-            <h3>Fractional Corporate Controller</h3>
-            <p>Full-cycle accounting oversight, month-end close, reporting, and financial controls — the discipline and rigor of a dedicated controller, scaled to your engagement.</p>
-            <div class="features">
+              <div class="feature">Leadership Continuity</div>
               <div class="feature">Month-End Close Management</div>
-              <div class="feature">Financial Controls &amp; Compliance</div>
-              <div class="feature">Accounting Oversight</div>
-              <div class="feature">Internal Reporting</div>
+              <div class="feature">Team Leadership</div>
+              <div class="feature">Transition &amp; Hiring Support</div>
             </div>
-            <a href="services-cfo.html" class="card-link">Explore Service &rarr;</a>
+            <a href="interim-cfo.html" class="card-link">Explore Service &rarr;</a>
           </div>
           <div class="service-card">
             <div class="icon-box" style="width:3.5rem;height:3.5rem;margin-bottom:1.5rem"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
-            <h3>Strategic Tax Planning</h3>
-            <p>Proactive tax strategy to minimize your liability and position your business for long-term financial health — not just at filing season.</p>
+            <h3>Start-up &amp; Middle Market Support</h3>
+            <p>From first financial foundation to scaling for growth — controller services, tax planning and preparation, and the systems and reporting that keep owners, investors, and lenders confident.</p>
             <div class="features">
-              <div class="feature">Tax Strategy &amp; Planning</div>
-              <div class="feature">Entity Structure Optimization</div>
-              <div class="feature">Deduction &amp; Credit Maximization</div>
-              <div class="feature">Year-Round Tax Advisory</div>
+              <div class="feature">Accounting Foundation &amp; Systems</div>
+              <div class="feature">Controller Services</div>
+              <div class="feature">Tax Planning &amp; Preparation</div>
+              <div class="feature">Investor &amp; Lender Reporting</div>
             </div>
-            <a href="services-cfo.html" class="card-link">Explore Service &rarr;</a>
-          </div>
-          <div class="service-card">
-            <div class="icon-box" style="width:3.5rem;height:3.5rem;margin-bottom:1.5rem"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg></div>
-            <h3>Tax Preparation</h3>
-            <p>Accurate, thorough tax preparation for businesses, sole proprietors, and nonprofits — filed correctly and on time.</p>
-            <div class="features">
-              <div class="feature">Business Tax Returns</div>
-              <div class="feature">Sole Proprietor Filing</div>
-              <div class="feature">Nonprofit Tax Compliance</div>
-              <div class="feature">Multi-State Filing</div>
-            </div>
-            <a href="services-cfo.html" class="card-link">Explore Service &rarr;</a>
+            <a href="startup-middle-market.html" class="card-link">Explore Service &rarr;</a>
           </div>
       </div>
     </div>
@@ -336,12 +323,10 @@
         </div>
         <div>
           <h4>Services</h4>
-            <a href="services-cfo.html" class="footer-link">Fractional CFO</a>
-            <a href="services-cfo.html" class="footer-link">Fractional Corporate Controller</a>
-            <a href="services-cfo.html" class="footer-link">Strategic Tax Planning</a>
-            <a href="services-cfo.html" class="footer-link">Tax Preparation</a>
-            <a href="services-cfo.html" class="footer-link">Business Optimization</a>
-            <a href="services-cfo.html" class="footer-link">Nonprofit Governance</a>
+            <a href="fractional-cfo.html" class="footer-link">Fractional CFO</a>
+            <a href="projects.html" class="footer-link">Projects</a>
+            <a href="interim-cfo.html" class="footer-link">Interim CFO</a>
+            <a href="startup-middle-market.html" class="footer-link">Start-up &amp; Middle Market Support</a>
         </div>
         <div>
           <h4>Company</h4>

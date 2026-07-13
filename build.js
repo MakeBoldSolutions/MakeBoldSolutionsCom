@@ -67,6 +67,7 @@ const icons = {
   'map-pin': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>',
   'arrow-left': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>',
   'arrow-right': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>',
+  'chevron-down': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>',
   'linkedin': '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>',
   'menu': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>',
   'book': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>',
@@ -253,6 +254,57 @@ h1, h2, h3, h4, h5, h6 {
 .nav-link:hover { color: var(--primary); }
 .nav-link.active { color: var(--primary); font-weight: 700; }
 
+/* Desktop dropdown */
+.nav-item { position: relative; }
+.nav-item .nav-link { display: inline-flex; align-items: center; gap: 0.3rem; }
+.nav-caret { display: inline-flex; transition: transform 0.2s; }
+.nav-item:hover .nav-caret, .nav-item:focus-within .nav-caret { transform: rotate(180deg); }
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 17rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--primary);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+  padding: 0.5rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s, visibility 0.15s;
+  z-index: 60;
+}
+.nav-item:hover .nav-dropdown, .nav-item:focus-within .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+}
+.nav-dropdown-link {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(31, 31, 31, 0.8);
+  white-space: nowrap;
+  transition: color 0.15s, background 0.15s;
+}
+.nav-dropdown-link:hover { color: var(--primary); background: rgba(151,27,12,0.05); }
+
+/* Desktop nav CTA button */
+.nav-cta {
+  padding: 0.625rem 1.5rem;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: opacity 0.2s;
+}
+.nav-cta:hover { opacity: 0.9; }
+
 /* Mobile menu toggle button */
 .mobile-menu-toggle {
   display: flex;
@@ -294,6 +346,17 @@ h1, h2, h3, h4, h5, h6 {
 .mobile-nav-link:last-child { border-bottom: none; }
 .mobile-nav-link:hover { color: var(--primary); }
 .mobile-nav-link.active { color: var(--primary); }
+.mobile-nav-sublink {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  padding: 0.75rem 0 0.75rem 1.5rem;
+  color: rgba(255,255,255,0.65);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  letter-spacing: 0.04em;
+  transition: color 0.15s;
+}
+.mobile-nav-sublink:hover { color: var(--primary); }
 .mobile-nav-cta {
   display: block;
   margin: 1.25rem 0;
@@ -1112,14 +1175,35 @@ function escapeAttr(str) {
 }
 
 function navigation(activePage) {
+  const isLinkActive = link => {
+    if (link.href.split('#')[0] === activePage) return true;
+    return (link.children || []).some(child => child.href.split('#')[0] === activePage);
+  };
+
   const navLinks = content.nav.links.filter(link => !link.primary).map(link => {
-    const activeClass = link.href === activePage ? ' active' : '';
-    return `<a href="${link.href}" class="nav-link${activeClass}">${escapeHtml(link.label)}</a>`;
+    const activeClass = isLinkActive(link) ? ' active' : '';
+    if (!link.children) {
+      return `<a href="${link.href}" class="nav-link${activeClass}">${escapeHtml(link.label)}</a>`;
+    }
+    const dropdownLinks = link.children.map(child =>
+      `<a href="${child.href}" class="nav-dropdown-link">${escapeHtml(child.label)}</a>`
+    ).join('\n                ');
+    return `<div class="nav-item">
+              <a href="${link.href}" class="nav-link${activeClass}">${escapeHtml(link.label)} <span class="nav-caret">${icon('chevron-down', 14)}</span></a>
+              <div class="nav-dropdown">
+                ${dropdownLinks}
+              </div>
+            </div>`;
   }).join('\n            ');
 
   const mobileLinks = content.nav.links.filter(link => !link.primary).map(link => {
-    const activeClass = link.href === activePage ? ' active' : '';
-    return `<a href="${link.href}" class="mobile-nav-link${activeClass}">${escapeHtml(link.label)} ${icon('arrow-right', 16)}</a>`;
+    const activeClass = isLinkActive(link) ? ' active' : '';
+    const parent = `<a href="${link.href}" class="mobile-nav-link${activeClass}">${escapeHtml(link.label)} ${icon('arrow-right', 16)}</a>`;
+    if (!link.children) return parent;
+    const subLinks = link.children.map(child =>
+      `<a href="${child.href}" class="mobile-nav-sublink">${escapeHtml(child.label)}</a>`
+    ).join('\n              ');
+    return `${parent}\n              ${subLinks}`;
   }).join('\n              ');
 
   return `
@@ -1131,6 +1215,7 @@ function navigation(activePage) {
         </a>
         <div class="nav-links">
             ${navLinks}
+            <a href="contact.html" class="nav-cta">Get in Touch</a>
         </div>
         <button class="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav-panel" onclick="
           var nav = document.getElementById('site-nav');
@@ -1289,7 +1374,7 @@ function buildHome() {
         <h2 class="text-3xl font-heading font-bold mb-4">${escapeHtml(h.services.heading)}</h2>
         <p class="text-muted">${escapeHtml(h.services.description)}</p>
       </div>
-      <div class="grid grid-3" style="gap:2rem">${serviceCards}
+      <div class="grid grid-2" style="gap:2rem">${serviceCards}
       </div>
     </div>
   </section>
@@ -1364,6 +1449,38 @@ function buildHome() {
 function buildServicesCfo() {
   const s = content.servicesCfo;
 
+  const offerings = s.offerings.map((o, i) => {
+    const features = o.features.map(f => `
+                <li style="display:flex;align-items:center;gap:1rem;padding:0.75rem 0">
+                  ${icon('check-circle')}
+                  <span style="font-weight:500;font-size:1.125rem">${escapeHtml(f)}</span>
+                </li>`).join('');
+    const cta = o.cta
+      ? `<a href="${o.cta.href}" class="card-link" style="display:inline-block;margin-top:1rem">${escapeHtml(o.cta.label)} &rarr;</a>`
+      : '';
+    return `
+  <section id="${o.id}" class="${i % 2 === 0 ? 'section-white' : 'section-muted'} section" style="scroll-margin-top:6rem">
+    <div class="container">
+      <div class="grid grid-2-lg gap-stack" style="align-items:center">
+        <div>
+          <span class="text-primary font-bold tracking-widest uppercase text-sm mb-4" style="display:block">${escapeHtml(o.kicker)}</span>
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem">
+            <div class="icon-box" style="width:3rem;height:3rem;flex-shrink:0">${icon(o.icon, 24)}</div>
+            <h2 class="text-3xl font-heading font-bold">${escapeHtml(o.title)}</h2>
+          </div>
+          ${o.paragraphs.map(p => `<p class="text-muted text-lg leading-relaxed mb-6">${escapeHtml(p)}</p>`).join('')}
+          ${cta}
+        </div>
+        <div class="section-white" style="padding:2.5rem;box-shadow:0 10px 25px rgba(0,0,0,0.1);border-top:4px solid var(--primary)">
+          <h3 style="font-weight:700;text-transform:uppercase;letter-spacing:0.05em;font-size:0.875rem;margin-bottom:1rem">What's Included</h3>
+          <ul style="list-style:none">${features}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>`;
+  }).join('\n');
+
   const capabilities = s.main.capabilities.map(cap => `
                 <li style="display:flex;align-items:center;gap:1rem;padding:0.75rem 0">
                   ${icon('check-circle')}
@@ -1398,6 +1515,9 @@ function buildServicesCfo() {
       <p class="text-xl text-white-80 max-w-2xl">${escapeHtml(s.header.description)}</p>
     </div>
   </div>
+
+  <!-- Service Offerings -->
+${offerings}
 
   <!-- Main Content -->
   <div class="container section">
@@ -1443,6 +1563,100 @@ function buildServicesCfo() {
       <div class="flex flex-col sm-flex-row gap-4 justify-center">
         <a href="contact.html" class="btn-white btn-large">Get in Touch</a>
         <a href="about.html" class="btn-outline-white btn-large">About Our Firm</a>
+      </div>
+    </div>
+  </section>` + footer() + closePage();
+}
+
+function buildServicePage(page) {
+  const pageFile = `${page.slug}.html`;
+
+  const includedItems = page.included.items.map(item => `
+            <div class="card">
+              <div style="display:flex;align-items:flex-start;gap:1rem">
+                <div style="flex-shrink:0;margin-top:0.25rem">${icon('check-circle', 20)}</div>
+                <div>
+                  <h3 style="font-weight:700;margin-bottom:0.5rem">${escapeHtml(item.title)}</h3>
+                  <p class="text-sm text-muted">${escapeHtml(item.description)}</p>
+                </div>
+              </div>
+            </div>`).join('');
+
+  const triggers = page.whenYouNeedIt.triggers.map(t => `
+            <div class="card">
+              <div class="icon-box" style="margin-bottom:1rem">${icon(t.icon, 20)}</div>
+              <h3 style="font-weight:700;margin-bottom:0.5rem">${escapeHtml(t.title)}</h3>
+              <p class="text-sm text-muted">${escapeHtml(t.description)}</p>
+            </div>`).join('');
+
+  const steps = page.engagement.steps.map((step, i) => `
+            <div class="text-center">
+              <div style="width:3.5rem;height:3.5rem;margin:0 auto 1.5rem;display:flex;align-items:center;justify-content:center;background:var(--primary);color:var(--white);font-family:'Be Vietnam Pro',sans-serif;font-size:1.5rem;font-weight:700">${i + 1}</div>
+              <h3 class="text-xl font-heading font-bold mb-4">${escapeHtml(step.title)}</h3>
+              <p class="text-muted">${escapeHtml(step.description)}</p>
+            </div>`).join('');
+
+  return htmlHead(
+    page.seoTitle,
+    page.seoDescription,
+    pageFile
+  ) + navigation(pageFile) + `
+
+  <!-- Header -->
+  <div class="section-dark header-accent page-header">
+    <div class="container" style="position:relative;z-index:1">
+      <span class="text-primary font-bold tracking-widest uppercase text-sm mb-4" style="display:block">${escapeHtml(page.kicker)}</span>
+      <h1 class="text-4xl lg-text-6xl font-heading font-bold mb-6">${escapeHtml(page.heading)}</h1>
+      <p class="text-xl text-white-80 max-w-2xl">${escapeHtml(page.subtitle)}</p>
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <div class="container section">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-heading font-bold mb-6">${escapeHtml(page.intro.heading)}</h2>
+      ${page.intro.paragraphs.map(p => `<p class="text-muted text-lg leading-relaxed mb-6">${escapeHtml(p)}</p>`).join('')}
+    </div>
+  </div>
+
+  <!-- When You Need It -->
+  <section class="section-muted section">
+    <div class="container">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-3xl font-heading font-bold mb-4">${escapeHtml(page.whenYouNeedIt.heading)}</h2>
+        <p class="text-muted">${escapeHtml(page.whenYouNeedIt.description)}</p>
+      </div>
+      <div class="grid grid-4" style="gap:1.5rem">${triggers}
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="section-white section">
+    <div class="container">
+      <h2 class="text-3xl font-heading font-bold mb-12 text-center">${escapeHtml(page.included.heading)}</h2>
+      <div class="grid grid-2 max-w-5xl mx-auto" style="gap:1.5rem">${includedItems}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section-muted section">
+    <div class="container">
+      <h2 class="text-3xl font-heading font-bold mb-12 text-center">${escapeHtml(page.engagement.heading)}</h2>
+      <div class="grid grid-3 max-w-5xl mx-auto" style="gap:3rem">${steps}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-primary section">
+    <div class="container text-center">
+      <h2 class="text-3xl font-heading font-bold mb-6">${escapeHtml(page.cta.heading)}</h2>
+      <p class="text-white-80 max-w-2xl mx-auto mb-10 text-lg">${escapeHtml(page.cta.description)}</p>
+      <div class="flex flex-col sm-flex-row gap-4 justify-center">
+        <a href="contact.html" class="btn-white btn-large">Get in Touch</a>
+        <a href="services-cfo.html" class="btn-outline-white btn-large">Explore All Services</a>
       </div>
     </div>
   </section>` + footer() + closePage();
@@ -1936,6 +2150,10 @@ async function buildCard(person) {
 const pages = [
   { file: 'index.html', builder: buildHome },
   { file: 'services-cfo.html', builder: buildServicesCfo },
+  ...content.servicePages.map(page => ({
+    file: `${page.slug}.html`,
+    builder: () => buildServicePage(page)
+  })),
   { file: 'about.html', builder: buildAbout },
   { file: 'cfo-of-the-year.html', builder: buildCfoOfTheYear },
   { file: 'contact.html', builder: buildContact },

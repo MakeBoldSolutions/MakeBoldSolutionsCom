@@ -166,6 +166,57 @@ h1, h2, h3, h4, h5, h6 {
 .nav-link:hover { color: var(--primary); }
 .nav-link.active { color: var(--primary); font-weight: 700; }
 
+/* Desktop dropdown */
+.nav-item { position: relative; }
+.nav-item .nav-link { display: inline-flex; align-items: center; gap: 0.3rem; }
+.nav-caret { display: inline-flex; transition: transform 0.2s; }
+.nav-item:hover .nav-caret, .nav-item:focus-within .nav-caret { transform: rotate(180deg); }
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 17rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--primary);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+  padding: 0.5rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s, visibility 0.15s;
+  z-index: 60;
+}
+.nav-item:hover .nav-dropdown, .nav-item:focus-within .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+}
+.nav-dropdown-link {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(31, 31, 31, 0.8);
+  white-space: nowrap;
+  transition: color 0.15s, background 0.15s;
+}
+.nav-dropdown-link:hover { color: var(--primary); background: rgba(151,27,12,0.05); }
+
+/* Desktop nav CTA button */
+.nav-cta {
+  padding: 0.625rem 1.5rem;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: opacity 0.2s;
+}
+.nav-cta:hover { opacity: 0.9; }
+
 /* Mobile menu toggle button */
 .mobile-menu-toggle {
   display: flex;
@@ -207,6 +258,17 @@ h1, h2, h3, h4, h5, h6 {
 .mobile-nav-link:last-child { border-bottom: none; }
 .mobile-nav-link:hover { color: var(--primary); }
 .mobile-nav-link.active { color: var(--primary); }
+.mobile-nav-sublink {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  padding: 0.75rem 0 0.75rem 1.5rem;
+  color: rgba(255,255,255,0.65);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  letter-spacing: 0.04em;
+  transition: color 0.15s;
+}
+.mobile-nav-sublink:hover { color: var(--primary); }
 .mobile-nav-cta {
   display: block;
   margin: 1.25rem 0;
