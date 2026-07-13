@@ -41,6 +41,9 @@ copyFileSync(join(staticDir, 'robots.txt'), join(docsDir, 'robots.txt'));
 copyFileSync(join(staticDir, 'sitemap.xml'), join(docsDir, 'sitemap.xml'));
 // Copy Azure Static Web Apps config (routing, redirects, MIME types, security headers)
 copyFileSync(join(staticDir, 'staticwebapp.config.json'), join(docsDir, 'staticwebapp.config.json'));
+// Copy GitHub Pages config: CNAME sets the custom domain, .nojekyll serves files as-is
+copyFileSync(join(staticDir, 'CNAME'), join(docsDir, 'CNAME'));
+copyFileSync(join(staticDir, '.nojekyll'), join(docsDir, '.nojekyll'));
 const wellKnownDir = join(docsDir, '.well-known');
 mkdirSync(wellKnownDir, { recursive: true });
 copyFileSync(join(staticDir, '.well-known', 'security.txt'), join(wellKnownDir, 'security.txt'));
