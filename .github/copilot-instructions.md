@@ -18,10 +18,10 @@ MakeBoldSolutionsCom/
 ├── dev.js                 # Local dev server with rebuild-on-change
 ├── serve.js               # Plain static file server for docs/
 ├── static/                 # Files copied verbatim into docs/ on every build
-│   ├── CNAME, .nojekyll, robots.txt, sitemap.xml, favicon.*, .well-known/
+│   ├── staticwebapp.config.json, robots.txt, sitemap.xml, favicon.*, .well-known/
 ├── attached_assets/        # Logo files, vCards, contact photos used during build
 ├── documentation/          # Brand guide, logo source files
-└── docs/                   # Build output, committed to git for GitHub Pages
+└── docs/                   # Build output, committed to git for Azure Static Web Apps
 ```
 
 ## Development Workflows
@@ -35,8 +35,8 @@ npm run serve       # Serve existing docs/ without rebuilding
 
 ### Build & Deployment
 - Build output goes to `docs/`, which is committed to git.
-- GitHub Pages serves from `main` branch, `/docs` folder, custom domain `makeboldsolutions.com` (see `static/CNAME`).
-- `build.js` copies `static/CNAME`, `static/.nojekyll`, `static/robots.txt`, `static/sitemap.xml`, favicons, and `static/.well-known/security.txt` into `docs/` on every run — edit the source files in `static/`, not the generated copies in `docs/`.
+- Azure Static Web Apps deploys on push to `main` via `.github/workflows/azure-static-web-apps-*.yml`, which uploads `docs/` as a pre-built artifact (`skip_app_build: true`) — there is no build step in CI, so `docs/` must be committed already up to date. Custom domain `makeboldsolutions.com` is configured in the Azure portal, not a repo file.
+- `build.js` copies `static/staticwebapp.config.json`, `static/robots.txt`, `static/sitemap.xml`, favicons, and `static/.well-known/security.txt` into `docs/` on every run — edit the source files in `static/`, not the generated copies in `docs/`.
 
 ## Code Conventions
 - Pages are built by individual `build*()` functions in `build.js` (e.g. `buildHome`, `buildAbout`, `buildContact`) and registered in the `pages` array near the bottom of the file.

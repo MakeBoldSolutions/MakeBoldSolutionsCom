@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+
+      - name: Verify docs/ is up to date with source
+        run: |
+          npm run build
+          if ! git diff --quiet -- docs/; then
+            echo "::error::docs/ is out of date with build.js/content.json. Run 'npm run build' locally and commit the result."
+            git diff --stat -- docs/
+            exit 1
+          fi

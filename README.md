@@ -37,6 +37,9 @@ The site is a Node.js static site generator: `build.js` reads content from `cont
 
 ## Available Scripts
 
+- `npm run clean` - Remove the generated `docs/` directory (build.js never clears stale files on its own, so this catches orphaned output from removed pages/assets)
+- `npm run lint` - Lint `build.js`, `dev.js`, `serve.js`, and `test/` with ESLint
+- `npm test` - Run the build against a smoke-test suite (Node's built-in test runner): verifies every page builds, required Azure/SEO files are copied, and internal links resolve to real files
 - `npm run build` - Run the static site generator (`build.js`) and write output to `docs/`
 - `npm run dev` - Build, serve `docs/` locally, and rebuild automatically when `build.js` or `content.json` changes
 - `npm run serve` - Serve the existing `docs/` output without rebuilding
@@ -50,15 +53,14 @@ MakeBoldSolutionsCom/
 ├── dev.js                # Local dev server with rebuild-on-change
 ├── serve.js              # Plain static file server for docs/
 ├── static/                # Source files copied into docs/ on every build
-│   ├── CNAME              # Custom domain for GitHub Pages
-│   ├── .nojekyll          # Prevents Jekyll processing
+│   ├── staticwebapp.config.json  # Azure Static Web Apps routing, headers, caching
 │   ├── robots.txt
 │   ├── sitemap.xml
 │   ├── favicon.png / favicon.svg
 │   └── .well-known/security.txt
 ├── attached_assets/       # Logo files, vCards, and contact photos used during build
 ├── documentation/         # Brand guide, logo source files, project docs
-└── docs/                  # Build output (committed to git for GitHub Pages)
+└── docs/                  # Build output (committed to git for Azure Static Web Apps)
 ```
 
 ## Pages
@@ -76,7 +78,7 @@ Site copy, navigation, and page sections live in `content.json`. Edit that file 
 
 ## Deployment
 
-GitHub Pages is configured to serve from the `main` branch, `/docs` folder, at the custom domain `makeboldsolutions.com` (see `static/CNAME`). After making changes:
+The site deploys to Azure Static Web Apps via [.github/workflows/azure-static-web-apps-lemon-plant-08b5fed10.yml](.github/workflows/azure-static-web-apps-lemon-plant-08b5fed10.yml), which triggers on every push to `main`. It uploads the pre-built `docs/` folder as-is (`skip_app_build: true`, `app_location: "docs"`) — there is no build step in CI, so `docs/` must be regenerated and committed locally before pushing. The custom domain `makeboldsolutions.com` is configured in the Azure Static Web Apps portal (Custom domains blade), not via a repo file. Routing, security headers, and caching rules live in [static/staticwebapp.config.json](static/staticwebapp.config.json), which `build.js` copies into `docs/` on every build. After making changes:
 
 ```bash
 npm run build

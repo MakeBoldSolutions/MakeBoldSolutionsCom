@@ -14,11 +14,11 @@ against `content.json`, brand documentation, and generated output in `docs/`.
 This repository is a static marketing site. Prefer generated HTML, CSS, and
 small focused JavaScript over adding client-side frameworks, backends,
 databases, or build complexity. New dependencies must have a clear benefit and
-must not make GitHub Pages deployment harder to reason about.
+must not make Azure Static Web Apps deployment harder to reason about.
 
 ### III. Production Output Integrity
 
-The committed `docs/` directory is the GitHub Pages deployment output and must
+The committed `docs/` directory is the Azure Static Web Apps deployment output and must
 stay synchronized with source changes. Any change to `build.js`, `content.json`,
 or files under `static/` or `attached_assets/` that affects rendered pages must
 include a regenerated `docs/` output.
@@ -49,7 +49,7 @@ brand/project reference material.
 - Node.js 18+ with npm scripts
 - Static site generator implemented in `build.js`
 - Site content stored in `content.json`
-- Generated GitHub Pages output in `docs/`
+- Generated Azure Static Web Apps output in `docs/`
 - Source static assets in `static/` and `attached_assets/`
 - No backend, database, or client-side framework
 

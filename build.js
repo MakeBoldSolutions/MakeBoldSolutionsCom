@@ -36,9 +36,7 @@ const staticDir = join(__dirname, 'static');
 copyFileSync(join(staticDir, 'favicon.png'), join(docsDir, 'favicon.png'));
 copyFileSync(join(staticDir, 'favicon.svg'), join(docsDir, 'favicon.svg'));
 
-// Copy GitHub Pages essentials (custom domain, Jekyll bypass, crawler rules, security contact)
-copyFileSync(join(staticDir, 'CNAME'), join(docsDir, 'CNAME'));
-copyFileSync(join(staticDir, '.nojekyll'), join(docsDir, '.nojekyll'));
+// Copy crawler rules and security contact
 copyFileSync(join(staticDir, 'robots.txt'), join(docsDir, 'robots.txt'));
 copyFileSync(join(staticDir, 'sitemap.xml'), join(docsDir, 'sitemap.xml'));
 // Copy Azure Static Web Apps config (routing, redirects, MIME types, security headers)
@@ -1014,6 +1012,9 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 640px) { .deck-hero h1 { font-size: 1.9rem; } }
 `;
 
+// Write CSS once as a shared external file so browsers cache it across page
+// navigations instead of re-downloading it inlined in every HTML page.
+writeFileSync(join(docsDir, 'styles.css'), css.trim() + '\n', 'utf-8');
 
 // ─── Shared HTML Builders ────────────────────────────────────────────────────
 
@@ -1097,7 +1098,7 @@ ${robotsMeta}  <link rel="canonical" href="${escapeAttr(canonicalUrl)}">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <title>${escapeHtml(pageTitle)}</title>
-  <style>${css}</style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>`;
 }
@@ -1442,69 +1443,6 @@ function buildServicesCfo() {
       <div class="flex flex-col sm-flex-row gap-4 justify-center">
         <a href="contact.html" class="btn-white btn-large">Get in Touch</a>
         <a href="about.html" class="btn-outline-white btn-large">About Our Firm</a>
-      </div>
-    </div>
-  </section>` + footer() + closePage();
-}
-
-function buildCaseStudies() {
-  const cs = content.caseStudies;
-
-  const studies = cs.studies.map(study => `
-      <div class="case-study">
-        <div class="grid grid-12" style="gap:2rem">
-          <div class="md-col-span-8">
-            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem">
-              <span class="badge">${escapeHtml(study.sector)}</span>
-              <span class="badge-muted">${escapeHtml(study.category)}</span>
-            </div>
-            <h2 class="text-2xl font-heading font-bold mb-6">${escapeHtml(study.title)}</h2>
-            <div style="margin-bottom:2rem">
-              <h4 class="text-sm font-bold uppercase tracking-wider text-primary mb-1">Challenge</h4>
-              <p class="text-muted">${escapeHtml(study.challenge)}</p>
-            </div>
-            <div style="margin-bottom:2rem">
-              <h4 class="text-sm font-bold uppercase tracking-wider text-primary mb-1">Solution</h4>
-              <p class="text-muted">${escapeHtml(study.solution)}</p>
-            </div>
-            <div class="outcome-box">
-              <h4 style="font-weight:700;margin-bottom:0.25rem">Outcome</h4>
-              <p style="font-size:1.125rem;font-weight:500;opacity:0.8">${escapeHtml(study.outcome)}</p>
-            </div>
-          </div>
-          <div class="md-col-span-4 metrics-panel">
-            ${study.metrics.map(m => `
-              <div class="metric">
-                <div class="value">${escapeHtml(m.value)}</div>
-                <div class="label">${escapeHtml(m.label)}</div>
-              </div>`).join('')}
-          </div>
-        </div>
-      </div>`).join('');
-
-  return htmlHead('Case Studies', cs.header.description) + navigation('case-studies.html') + `
-
-  <div class="section-dark header-accent page-header">
-    <div class="container" style="position:relative;z-index:1">
-      <span class="text-primary font-bold tracking-widest uppercase text-sm mb-4" style="display:block">Client Results</span>
-      <h1 class="text-4xl lg-text-5xl font-heading font-bold mb-6">${escapeHtml(cs.header.heading)}</h1>
-      <p class="text-xl text-white-80 max-w-2xl">${escapeHtml(cs.header.description)}</p>
-    </div>
-  </div>
-
-  <div class="container section">
-    <div class="grid" style="gap:3rem">
-      ${studies}
-    </div>
-  </div>
-
-  <section class="section-primary section">
-    <div class="container text-center">
-      <h2 class="text-3xl font-heading font-bold mb-6">Ready to Write Your Own Success Story?</h2>
-      <p class="text-white-80 max-w-2xl mx-auto mb-10 text-lg">Every engagement starts with a conversation. Let's talk about where you are and where you want to go.</p>
-      <div class="flex flex-col sm-flex-row gap-4 justify-center">
-        <a href="contact.html" class="btn-white btn-large">Get in Touch</a>
-        <a href="services-cfo.html" class="btn-outline-white btn-large">Explore Our Services</a>
       </div>
     </div>
   </section>` + footer() + closePage();
@@ -1916,7 +1854,7 @@ async function buildCard(person) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <style>${css}</style>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <main class="card-page">

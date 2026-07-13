@@ -1,7 +1,7 @@
 # Dependencies
 node_modules
 
-# Note: docs/ is NOT ignored - it's the GitHub Pages deployment output
+# Note: docs/ is NOT ignored - it's the Azure Static Web Apps deployment output
 
 # Environment variables
 .env

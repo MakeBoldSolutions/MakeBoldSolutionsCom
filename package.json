@@ -4,11 +4,19 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
+    "clean": "node clean.js",
+    "lint": "eslint .",
+    "test": "node --test",
     "build": "node build.js",
     "dev": "node dev.js",
     "serve": "node serve.js"
   },
   "dependencies": {
     "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.7.0",
+    "globals": "^17.7.0"
   }
 }
