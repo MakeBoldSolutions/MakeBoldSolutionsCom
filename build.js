@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync, copyFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import QRCode from 'qrcode';
@@ -28,8 +28,15 @@ copyFileSync(
 // Copy the brand intro video used as the looping hero on the fractional-cfo page
 copyFileSync(
   join(assetsDir, 'animation', 'Make Bold Intro.mp4'),
-  join(docsDir, content.fractionalCfo.video.src)
+  join(docsDir, content.servicePages.find(p => p.slug === 'fractional-cfo').video.src)
 );
+
+// Copy the project-engagements intro video used as the looping hero on the
+// projects page, once it has been exported and dropped into attached_assets.
+const projectsVideoSrc = join(assetsDir, 'Projects Animation.mp4');
+if (existsSync(projectsVideoSrc)) {
+  copyFileSync(projectsVideoSrc, join(docsDir, content.servicePages.find(p => p.slug === 'projects').video.src));
+}
 
 // Copy favicon
 const staticDir = join(__dirname, 'static');
@@ -1062,20 +1069,11 @@ h1, h2, h3, h4, h5, h6 {
 .card-spark-link:hover { color: var(--primary); }
 .card-footer { text-align: center; font-size: 0.75rem; color: var(--muted-fg); opacity: 0.7; padding: 1.5rem 0; }
 
-/* Fractional CFO — video hero + restated content */
-.deck-hero { text-align: center; padding: 2.5rem 0 1.5rem; }
-.deck-hero .kicker { color: var(--primary); font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.8rem; }
-.deck-hero h1 { font-size: 2.5rem; margin: 0.75rem 0; }
-.deck-hero p { color: var(--muted-fg); max-width: 40rem; margin: 0 auto; }
-.deck-intro { color: var(--muted-fg); max-width: 40rem; margin: 2.5rem auto 0; text-align: center; font-size: 1.0625rem; line-height: 1.7; }
+/* Service page video hero */
 .deck { max-width: 64rem; margin: 0 auto 4rem; padding: 0 1rem; }
 .intro-video-frame { position: relative; overflow: hidden; border-radius: 1.25rem; box-shadow: 0 24px 60px rgba(30,30,30,0.18); background: #1E1E1E; aspect-ratio: 16 / 9; }
 .intro-video-frame video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .intro-video-caption { text-align: center; margin-top: 0.875rem; font-size: 0.8125rem; color: var(--muted-fg); font-style: italic; }
-.intro-cta { text-align: center; margin-top: 2rem; }
-.cfo-card-icon { width: 3.5rem; height: 3.5rem; margin-bottom: 1.5rem; }
-.cfo-card-kicker { color: var(--primary); font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.75rem; display: block; margin-bottom: 0.625rem; }
-@media (max-width: 640px) { .deck-hero h1 { font-size: 1.9rem; } }
 `;
 
 // Write CSS once as a shared external file so browsers cache it across page
@@ -1613,6 +1611,15 @@ function buildServicePage(page) {
       <p class="text-xl text-white-80 max-w-2xl">${escapeHtml(page.subtitle)}</p>
     </div>
   </div>
+${page.video ? `
+  <div class="deck" style="padding-top:2.5rem">
+    <div class="intro-video-frame">
+      <video autoplay muted loop playsinline aria-label="${escapeAttr(page.video.label)}">
+        <source src="${escapeAttr(page.video.src)}" type="video/mp4">
+      </video>
+    </div>
+    <p class="intro-video-caption">${escapeHtml(page.video.label)}</p>
+  </div>` : ''}
 
   <!-- Intro -->
   <div class="container section">
@@ -1892,72 +1899,6 @@ function buildContact() {
   </section>` + footer() + closePage();
 }
 
-function buildFractionalCfo() {
-  const p = content.fractionalCfo;
-  const intro = p.slides[0];
-  const closing = p.slides[p.slides.length - 1];
-  const middleSlides = p.slides.slice(1, -1);
-
-  const cards = middleSlides.map(s => {
-    const bullets = s.bullets ? `<div class="features">${s.bullets.map(b => `<div class="feature">${escapeHtml(b)}</div>`).join('')}</div>` : '';
-    return `
-            <div class="service-card">
-              <div class="icon-box cfo-card-icon">${icon(s.icon, 40)}</div>
-              <span class="cfo-card-kicker">${escapeHtml(s.kicker)}</span>
-              <h3>${escapeHtml(s.title)}</h3>
-              <p>${escapeHtml(s.body)}</p>
-              ${bullets}
-            </div>`;
-  }).join('');
-
-  return htmlHead(
-    'Fractional CFO & Executive Leadership',
-    'Fractional CFO and executive leadership from Make Bold Solutions — data-driven financial strategy that bridges operations and the bottom line for growing businesses.',
-    'fractional-cfo.html'
-  ) + navigation('fractional-cfo.html') + `
-
-  <div class="deck-hero container">
-    <span class="kicker">${escapeHtml(p.kicker)}</span>
-    <h1>${escapeHtml(p.title)}</h1>
-    <p>${escapeHtml(p.subtitle)}</p>
-  </div>
-
-  <div class="deck">
-    <div class="intro-video-frame">
-      <video autoplay muted loop playsinline aria-label="${escapeAttr(p.video.label)}">
-        <source src="${escapeAttr(p.video.src)}" type="video/mp4">
-      </video>
-    </div>
-    <p class="intro-video-caption">${escapeHtml(p.video.label)}</p>
-    <div class="intro-cta">
-      <a href="contact.html" class="btn-primary">Start Your Climb to Value</a>
-    </div>
-    <p class="deck-intro">${escapeHtml(intro.body)}</p>
-  </div>
-
-  <section class="section-muted section">
-    <div class="container">
-      <div class="text-center max-w-2xl mx-auto mb-12">
-        <h2 class="text-3xl font-heading font-bold mb-4">${escapeHtml(p.sectionHeading)}</h2>
-        <p class="text-muted">${escapeHtml(p.sectionIntro)}</p>
-      </div>
-      <div class="grid grid-2-lg" style="gap:1.5rem">${cards}
-      </div>
-    </div>
-  </section>
-
-  <section class="section-primary section">
-    <div class="container text-center">
-      <h2 class="text-3xl font-heading font-bold mb-6">${escapeHtml(closing.title)}</h2>
-      <p class="text-white-80 max-w-2xl mx-auto mb-10 text-lg">${escapeHtml(closing.body)}</p>
-      <div class="flex flex-col sm-flex-row gap-4 justify-center">
-        <a href="contact.html" class="btn-white btn-large">Start Your Climb to Value</a>
-        <a href="services-cfo.html" class="btn-outline-white btn-large">Explore Our Services</a>
-      </div>
-    </div>
-  </section>` + footer() + closePage();
-}
-
 function buildNotFound() {
   const nf = content.notFound;
   return htmlHead('Page Not Found', nf.description, '404.html', { robots: 'noindex, follow' }) + navigation('') + `
@@ -2160,7 +2101,6 @@ const pages = [
   { file: 'about.html', builder: buildAbout },
   { file: 'cfo-of-the-year.html', builder: buildCfoOfTheYear },
   { file: 'contact.html', builder: buildContact },
-  { file: 'fractional-cfo.html', builder: buildFractionalCfo },
   { file: '404.html', builder: buildNotFound },
   ...cards.map(person => ({ file: `${person.slug}/card/index.html`, builder: () => buildCard(person) })),
 ];

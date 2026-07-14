@@ -971,17 +971,8 @@ h1, h2, h3, h4, h5, h6 {
 .card-spark-link:hover { color: var(--primary); }
 .card-footer { text-align: center; font-size: 0.75rem; color: var(--muted-fg); opacity: 0.7; padding: 1.5rem 0; }
 
-/* Fractional CFO — video hero + restated content */
-.deck-hero { text-align: center; padding: 2.5rem 0 1.5rem; }
-.deck-hero .kicker { color: var(--primary); font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.8rem; }
-.deck-hero h1 { font-size: 2.5rem; margin: 0.75rem 0; }
-.deck-hero p { color: var(--muted-fg); max-width: 40rem; margin: 0 auto; }
-.deck-intro { color: var(--muted-fg); max-width: 40rem; margin: 2.5rem auto 0; text-align: center; font-size: 1.0625rem; line-height: 1.7; }
+/* Service page video hero */
 .deck { max-width: 64rem; margin: 0 auto 4rem; padding: 0 1rem; }
 .intro-video-frame { position: relative; overflow: hidden; border-radius: 1.25rem; box-shadow: 0 24px 60px rgba(30,30,30,0.18); background: #1E1E1E; aspect-ratio: 16 / 9; }
 .intro-video-frame video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .intro-video-caption { text-align: center; margin-top: 0.875rem; font-size: 0.8125rem; color: var(--muted-fg); font-style: italic; }
-.intro-cta { text-align: center; margin-top: 2rem; }
-.cfo-card-icon { width: 3.5rem; height: 3.5rem; margin-bottom: 1.5rem; }
-.cfo-card-kicker { color: var(--primary); font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.75rem; display: block; margin-bottom: 0.625rem; }
-@media (max-width: 640px) { .deck-hero h1 { font-size: 1.9rem; } }
